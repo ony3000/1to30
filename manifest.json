@@ -1,0 +1,32 @@
+{
+	"name": "1부터 30까지!",
+	"short_name": "1 to 30!",
+	"icons": [
+		{
+			"src": "assets/images/icon-128x128.png",
+			"sizes": "128x128",
+			"type": "image/png"
+		}, {
+			"src": "assets/images/icon-144x144.png",
+			"sizes": "144x144",
+			"type": "image/png"
+		}, {
+			"src": "assets/images/icon-152x152.png",
+			"sizes": "152x152",
+			"type": "image/png"
+		}, {
+			"src": "assets/images/icon-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		}, {
+			"src": "assets/images/icon-256x256.png",
+			"sizes": "256x256",
+			"type": "image/png"
+		}
+	],
+	"start_url": "index.php",
+	"display": "standalone",
+	"orientation": "portrait",
+	"background_color": "#ececec",
+	"theme_color": "#d4b300"
+}

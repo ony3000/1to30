@@ -1,0 +1,17 @@
+.board {
+	flex-direction: row;
+}
+
+.score-board {
+	flex: 1 1 0%;
+	width: calc(100vw - 100vh);
+}
+
+.game-board {
+	width: 100vh;
+	height: calc(100vh - 60px);
+}
+
+.cell-wrap {
+	padding: 0 45px 30px 45px;
+}

@@ -1,0 +1,26 @@
+.board {
+	flex-direction: column;
+}
+
+.score-board {
+	/* no styles */
+}
+
+.game-board {
+	width: 100vw;
+	height: 100vw;
+}
+
+.cell-wrap {
+	padding: 45px;
+}
+
+/* Exclusive styles to iOS */
+body.is-standalone .header {
+	height: 64px;
+	padding: 20px 20px 0 20px;
+}
+
+body.is-standalone  .main {
+	padding-top: 84px;
+}
