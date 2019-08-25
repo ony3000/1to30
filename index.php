@@ -12,7 +12,7 @@ if (strpos($agent_string, 'iphone') !== FALSE && strpos($agent_string, 'safari')
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
 	<title>1부터 30까지!</title>
-	<link rel="icon" type="image/png" href="assets/images/icon-32x32.png">
+	<link rel="icon" type="image/png" href="assets/images/icon-32.png">
 	<link rel="stylesheet" href="assets/styles/font-awesome-4.7.0.min.css">
 	<link rel="stylesheet" href="assets/styles/bulma-0.5.1.min.css">
 	<link rel="stylesheet" href="assets/styles/inline.css">
@@ -27,10 +27,10 @@ if (strpos($agent_string, 'iphone') !== FALSE && strpos($agent_string, 'safari')
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="apple-mobile-web-app-title" content="1 to 30!">
-	<link rel="apple-touch-icon" href="assets/images/icon-152x152.png">
+	<link rel="apple-touch-icon" href="assets/images/icon-152.png">
 
 	<!-- Add to home screen for Windows -->
-	<meta name="msapplication-TileImage" content="assets/images/icon-144x144.png">
+	<meta name="msapplication-TileImage" content="assets/images/icon-144.png">
 	<meta name="msapplication-TileColor" content="#d4b300">
 </head>
 <body class="<?php if ($is_standalone) { echo 'is-standalone'; } ?>">
