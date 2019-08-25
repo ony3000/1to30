@@ -5,7 +5,10 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    htmlAttrs: {
+      lang: 'ko'
+    },
+    title: '1부터 30까지!',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -23,11 +26,14 @@ export default {
   ** Global CSS
   */
   css: [
+    '@fortawesome/fontawesome-free/css/all.css',
+    'vuetify/dist/vuetify.min.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/vuetify'
   ],
   /*
   ** Nuxt.js dev-modules
