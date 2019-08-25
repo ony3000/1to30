@@ -1,72 +1,90 @@
 <template>
-  <div class="container">
+  <v-layout
+    column
+    justify-space-around
+  >
     <div>
-      <logo />
-      <h1 class="title">
-        1to30
-      </h1>
-      <h2 class="subtitle">
-        Hommage for 1to50
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
+      <v-img
+        :src="titleImage"
+        alt="'1부터 30까지!' 로고"
+        aspect-ratio="1"
+        max-width="256"
+        class="mx-auto"
+      >
+        <template
+          v-slot:placeholder
         >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+          <v-layout
+            fill-height
+            justify-center
+            align-center
+            ma-0
+          >
+            <v-progress-circular
+              indeterminate
+              color="grey lighten-5"
+            />
+          </v-layout>
+        </template>
+      </v-img>
     </div>
-  </div>
+    <div>
+      <v-item-group>
+        <v-layout
+          v-for="(menu, index) in menus"
+          :key="index"
+          justify-center
+        >
+          <v-flex
+            xs9
+            sm8
+            md7
+            lg6
+            xl5
+          >
+            <v-item>
+              <v-btn
+                block
+                :color="(index % 2 === 1 ? '#3f240d' : '#ffc039')"
+                :dark="index % 2 === 1"
+              >
+                <v-icon
+                  left
+                >
+                  {{ menu.icon }}
+                </v-icon>
+                <span>{{ menu.title }}</span>
+              </v-btn>
+            </v-item>
+          </v-flex>
+        </v-layout>
+      </v-item-group>
+    </div>
+  </v-layout>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import titleImage from '~/assets/images/icon-256.png'
 
 export default {
-  components: {
-    Logo
+  data () {
+    return {
+      titleImage,
+      menus: [
+        {
+          icon: 'fas fa-th',
+          title: '게임 시작'
+        },
+        {
+          icon: 'fas fa-chart-bar',
+          title: '기록 확인'
+        },
+        {
+          icon: 'fas fa-cog',
+          title: '설정'
+        }
+      ]
+    }
   }
 }
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
