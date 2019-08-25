@@ -15,13 +15,17 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "vuetify": "^1.5.16"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.10.2",
     "@nuxtjs/eslint-config": "^1.0.1",
     "@nuxtjs/eslint-module": "^1.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^6.1.0",
-    "eslint-plugin-nuxt": ">=0.4.2"
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.3.1"
   }
 }
