@@ -67,6 +67,7 @@
 import titleImage from '~/assets/images/icon-256.png'
 
 export default {
+  name: 'IndexPage',
   data () {
     return {
       titleImage,
