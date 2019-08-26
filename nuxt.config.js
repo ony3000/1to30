@@ -27,7 +27,8 @@ export default {
   */
   css: [
     '@fortawesome/fontawesome-free/css/all.css',
-    'vuetify/dist/vuetify.min.css'
+    'vuetify/dist/vuetify.min.css',
+    '~/assets/styles/application.scss'
   ],
   /*
   ** Plugins to load before mounting the App
