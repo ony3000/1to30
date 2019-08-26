@@ -1,0 +1,98 @@
+<template>
+  <v-layout
+    wrap
+    fill-height
+    align-center
+    justify-center
+  >
+    <v-flex
+      xs12
+    >
+      <v-layout
+        justify-space-between
+      >
+        <v-flex
+          xs4
+        >
+          <v-card>
+            <v-card-title
+              class="py-1"
+            >
+              <div>
+                <div
+                  class="subheading"
+                >
+                  Next
+                </div>
+                <div
+                  class="display-1"
+                >
+                  1
+                </div>
+              </div>
+            </v-card-title>
+          </v-card>
+        </v-flex>
+        <v-flex
+          xs7
+        >
+          <v-card>
+            <v-card-title
+              class="py-1 justify-end text-xs-right"
+            >
+              <div>
+                <div
+                  class="subheading"
+                >
+                  Time
+                </div>
+                <div
+                  class="display-1"
+                >
+                  0.00
+                </div>
+              </div>
+            </v-card-title>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </v-flex>
+    <v-sheet
+      width="288"
+      height="288"
+    >
+      <v-layout
+        wrap
+        fill-height
+      >
+        <v-flex
+          v-for="(num, index) in 16"
+          :key="index"
+          xs3
+          pa-1
+        >
+          <v-card
+            height="100%"
+            ripple
+          >
+            <v-layout
+              fill-height
+              align-center
+              justify-center
+              headline
+            >
+              {{ num }}
+            </v-layout>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </v-sheet>
+  </v-layout>
+</template>
+
+<script>
+export default {
+  name: 'PlayPage',
+  layout: 'simple'
+}
+</script>

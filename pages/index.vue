@@ -47,6 +47,8 @@
                 block
                 :color="(index % 2 === 1 ? '#3f240d' : '#ffc039')"
                 :dark="index % 2 === 1"
+                :to="menu.to"
+                nuxt
               >
                 <v-icon
                   left
@@ -74,7 +76,8 @@ export default {
       menus: [
         {
           icon: 'fas fa-th',
-          title: '게임 시작'
+          title: '게임 시작',
+          to: '/play'
         },
         {
           icon: 'fas fa-chart-bar',
