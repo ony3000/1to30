@@ -45,7 +45,7 @@
             <v-item>
               <v-btn
                 block
-                :color="(index % 2 === 1 ? '#3f240d' : '#ffc039')"
+                :color="(index % 2 === 1 ? 'deep-brown-like' : 'amber-like')"
                 :dark="index % 2 === 1"
                 :to="menu.to"
                 nuxt

@@ -8,7 +8,7 @@
     <v-progress-circular
       v-if="isLoading"
       indeterminate
-      color="#3f240d"
+      color="deep-brown-like"
     />
     <v-flex
       v-if="!isLoading"
@@ -81,7 +81,7 @@
           style="height: 25%;"
         >
           <v-card
-            color="#ffc039"
+            color="amber-like"
             height="100%"
             ripple
             :flat="num === null || isTimeover"
