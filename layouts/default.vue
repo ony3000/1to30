@@ -4,8 +4,16 @@
       <v-container
         fluid
         fill-height
+        justify-center
       >
-        <nuxt />
+        <v-sheet
+          width="100%"
+          max-width="540"
+          height="100%"
+          color="transparent"
+        >
+          <nuxt />
+        </v-sheet>
       </v-container>
     </v-content>
     <v-footer

@@ -1,9 +1,13 @@
 <template>
   <v-layout
-    column
-    justify-space-around
+    wrap
+    fill-height
+    align-center
+    justify-center
   >
-    <div>
+    <v-flex
+      xs12
+    >
       <v-img
         :src="titleImage"
         alt="'1부터 30까지!' 로고"
@@ -27,21 +31,17 @@
           </v-layout>
         </template>
       </v-img>
-    </div>
-    <div>
+    </v-flex>
+    <v-flex
+      xs10
+    >
       <v-item-group>
         <v-layout
           v-for="(menu, index) in menus"
           :key="index"
           justify-center
         >
-          <v-flex
-            xs9
-            sm8
-            md7
-            lg6
-            xl5
-          >
+          <v-flex>
             <v-item>
               <v-btn
                 block
@@ -61,7 +61,7 @@
           </v-flex>
         </v-layout>
       </v-item-group>
-    </div>
+    </v-flex>
   </v-layout>
 </template>
 
@@ -92,3 +92,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.v-item-group > * {
+  cursor: auto;
+}
+</style>
