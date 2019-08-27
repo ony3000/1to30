@@ -81,7 +81,8 @@ export default {
         },
         {
           icon: 'fas fa-chart-bar',
-          title: '기록 확인'
+          title: '기록 확인',
+          to: '/ranking'
         },
         {
           icon: 'fas fa-cog',
