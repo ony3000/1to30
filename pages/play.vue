@@ -67,6 +67,7 @@
       v-if="!isLoading"
       width="288"
       height="288"
+      color="transparent"
     >
       <v-layout
         wrap
@@ -85,8 +86,9 @@
             ripple
             :flat="num === null || isTimeover"
             :disabled="num === null || isTimeover"
+            class="number-tile"
             :class="{
-              'is-marked': (num === false)
+              'is-disappear': (num === false)
             }"
             @click="tapping(num, index)"
           >
@@ -104,6 +106,7 @@
     </v-sheet>
     <v-dialog
       :value="isStandby"
+      no-click-animation
       persistent
       width="300"
     >
@@ -255,12 +258,16 @@ export default {
 }
 
 .v-card {
-    transform-origin: center center;
-    transform: scale(1);
+  user-select: none;
 }
 
-.v-card.is-marked {
+.number-tile {
+  transform-origin: center center;
+  transform: scale(1);
+
+  &.is-disappear {
     transition: transform 0.2s ease-out;
     transform: scale(0);
+  }
 }
 </style>
