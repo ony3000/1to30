@@ -226,10 +226,30 @@ export default {
         if (num === this.lastNumber) {
           clearInterval(this.clock)
           if (this.$store.state.isStorageAvailable) {
+            const timestamp = new Date().getTime()
             setTimeout(() => {
-              const recordTime = this.elapsedTime / 1000
-              const recordName = prompt(`입력하는 이름으로 ${recordTime}초 기록이 저장됩니다.`, '') || '(이름 없음)'
-              console.log(recordName, recordTime)
+              const score = this.elapsedTime / 1000
+              const name = prompt(`입력하는 이름으로 ${score}초 기록이 저장됩니다.`, '') || '(이름 없음)'
+              const userAgent = navigator.userAgent
+              const newRecord = {
+                name,
+                score,
+                timestamp,
+                userAgent
+              }
+              const storage = window.localStorage
+              let ranking = []
+              const storedData = storage.getItem('1to30:ranking')
+              if (storedData) {
+                try {
+                  ranking = JSON.parse(storedData)
+                } catch (e) {
+                  console.warn(e)
+                }
+              }
+              ranking.push(newRecord)
+              this.$store.commit('addRecord', newRecord)
+              storage.setItem('1to30:ranking', JSON.stringify(ranking))
             }, 200)
           } else {
             alert('로컬 저장소를 사용할 수 없습니다. 기록을 저장할 수 없습니다.')
