@@ -15,8 +15,10 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
+    "dayjs": "^1.8.16",
     "lodash": "^4.17.15",
     "nuxt": "^2.0.0",
+    "ua-parser-js": "^0.7.20",
     "vuetify": "^1.5.16"
   },
   "devDependencies": {
