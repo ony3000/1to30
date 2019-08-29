@@ -84,6 +84,7 @@
             color="amber-like"
             height="100%"
             ripple
+            light
             :flat="num === null || isTimeover"
             :disabled="num === null || isTimeover"
             class="number-tile"

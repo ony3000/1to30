@@ -25,22 +25,39 @@ function storageAvailable (type) {
 
 const baseState = {
   isStorageAvailable: storageAvailable('localStorage'),
-  ranking: []
+  ranking: [],
+  settings: {}
 }
 
 if (baseState.isStorageAvailable) {
   const storage = window.localStorage
-  let ranking = []
-  const storedData = storage.getItem('1to30:ranking')
+  let storedData
+
+  const ranking = []
+  storedData = storage.getItem('1to30:ranking')
   if (storedData) {
     try {
-      ranking = JSON.parse(storedData)
+      ranking.push(...JSON.parse(storedData))
     } catch (e) {
       console.warn(e)
     }
   }
   storage.setItem('1to30:ranking', JSON.stringify(ranking))
   baseState.ranking = ranking
+
+  const settings = {
+    useDarkTheme: false
+  }
+  storedData = storage.getItem('1to30:settings')
+  if (storedData) {
+    try {
+      Object.assign(settings, JSON.parse(storedData))
+    } catch (e) {
+      console.warn(e)
+    }
+  }
+  storage.setItem('1to30:settings', JSON.stringify(settings))
+  baseState.settings = settings
 }
 
 export const state = () => ({
@@ -53,5 +70,32 @@ export const mutations = {
       ...state.ranking,
       newRecord
     ]
+  },
+  deleteRecords (state) {
+    state.ranking = []
+    if (state.isStorageAvailable) {
+      const storage = window.localStorage
+      storage.setItem('1to30:ranking', JSON.stringify([]))
+    }
+  },
+  setDarkTheme (state, value) {
+    state.settings.useDarkTheme = value
+    if (state.isStorageAvailable) {
+      const storage = window.localStorage
+
+      const settings = {
+        useDarkTheme: false
+      }
+      const storedData = storage.getItem('1to30:settings')
+      if (storedData) {
+        try {
+          Object.assign(settings, JSON.parse(storedData))
+        } catch (e) {
+          console.warn(e)
+        }
+      }
+      settings.useDarkTheme = value
+      storage.setItem('1to30:settings', JSON.stringify(settings))
+    }
   }
 }

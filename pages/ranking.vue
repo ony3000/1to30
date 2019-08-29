@@ -8,6 +8,7 @@
       <v-tabs
         v-model="activeTab"
         grow
+        light
         color="amber-like"
         slider-color="deep-brown-like"
       >
