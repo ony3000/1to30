@@ -20,6 +20,32 @@
             />
           </v-list-tile-action>
         </v-list-tile>
+        <v-list-tile>
+          <v-list-tile-content>
+            <v-list-tile-title>
+              힌트 제공
+            </v-list-tile-title>
+          </v-list-tile-content>
+          <v-list-tile-action>
+            <v-switch
+              v-model="useHint"
+              color="amber-like"
+              class="toggle-switch"
+            />
+          </v-list-tile-action>
+        </v-list-tile>
+      </v-list>
+      <v-divider />
+      <v-list>
+        <v-list-tile
+          @click="resetSettings"
+        >
+          <v-list-tile-content>
+            <v-list-tile-title>
+              설정 초기화
+            </v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
       </v-list>
       <v-divider
         v-if="$store.state.isStorageAvailable"
@@ -67,10 +93,10 @@
       </v-card>
     </v-dialog>
     <v-snackbar
-      v-model="snackbar.darkTheme"
+      v-model="snackbar.general"
       bottom
       :timeout="1500"
-      @click="snackbar.darkTheme = false"
+      @click="snackbar.general = false"
     >
       설정이 저장되었습니다.
     </v-snackbar>
@@ -92,8 +118,9 @@ export default {
   data () {
     return {
       useDarkTheme: false,
+      useHint: true,
       snackbar: {
-        darkTheme: false,
+        general: false,
         deleteRanking: false
       },
       isDialogActive: false
@@ -103,12 +130,19 @@ export default {
     useDarkTheme () {
       if (this.useDarkTheme !== this.$store.state.settings.useDarkTheme) {
         this.$store.commit('setDarkTheme', this.useDarkTheme)
-        this.snackbar.darkTheme = true
+        this.snackbar.general = true
+      }
+    },
+    useHint () {
+      if (this.useHint !== this.$store.state.settings.useHint) {
+        this.$store.commit('setHint', this.useHint)
+        this.snackbar.general = true
       }
     }
   },
   mounted () {
     this.useDarkTheme = this.$store.state.settings.useDarkTheme
+    this.useHint = this.$store.state.settings.useHint
   },
   methods: {
     openDialog () {
@@ -121,6 +155,11 @@ export default {
       this.$store.commit('deleteRecords')
       this.snackbar.deleteRanking = true
       this.closeDialog()
+    },
+    resetSettings () {
+      this.useDarkTheme = false
+      this.useHint = true
+      this.snackbar.general = true
     }
   }
 }

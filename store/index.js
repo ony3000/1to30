@@ -23,10 +23,17 @@ function storageAvailable (type) {
   }
 }
 
+const baseSettings = {
+  useDarkTheme: false,
+  useHint: true
+}
+
 const baseState = {
   isStorageAvailable: storageAvailable('localStorage'),
   ranking: [],
-  settings: {}
+  settings: {
+    ...baseSettings
+  }
 }
 
 if (baseState.isStorageAvailable) {
@@ -46,7 +53,7 @@ if (baseState.isStorageAvailable) {
   baseState.ranking = ranking
 
   const settings = {
-    useDarkTheme: false
+    ...baseSettings
   }
   storedData = storage.getItem('1to30:settings')
   if (storedData) {
@@ -84,7 +91,7 @@ export const mutations = {
       const storage = window.localStorage
 
       const settings = {
-        useDarkTheme: false
+        ...baseSettings
       }
       const storedData = storage.getItem('1to30:settings')
       if (storedData) {
@@ -95,6 +102,26 @@ export const mutations = {
         }
       }
       settings.useDarkTheme = value
+      storage.setItem('1to30:settings', JSON.stringify(settings))
+    }
+  },
+  setHint (state, value) {
+    state.settings.useHint = value
+    if (state.isStorageAvailable) {
+      const storage = window.localStorage
+
+      const settings = {
+        ...baseSettings
+      }
+      const storedData = storage.getItem('1to30:settings')
+      if (storedData) {
+        try {
+          Object.assign(settings, JSON.parse(storedData))
+        } catch (e) {
+          console.warn(e)
+        }
+      }
+      settings.useHint = value
       storage.setItem('1to30:settings', JSON.stringify(settings))
     }
   }

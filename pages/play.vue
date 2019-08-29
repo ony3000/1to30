@@ -81,10 +81,11 @@
           style="height: 25%;"
         >
           <v-card
-            color="amber-like"
+            :color="(num === nextNumber && isHintActive) ? 'brown' : 'amber-like'"
             height="100%"
             ripple
-            light
+            :light="!(num === nextNumber && isHintActive)"
+            :dark="num === nextNumber && isHintActive"
             :flat="num === null || isTimeover"
             :disabled="num === null || isTimeover"
             class="number-tile"
@@ -131,6 +132,7 @@ import shuffle from 'lodash/shuffle'
 
 const SECOND = 1000
 const STANDBY_DURATION = 3 * SECOND
+const HINT_DURATION = 2 * SECOND
 const TIMEOVER_DURATION = 100 * SECOND
 const TIMER_EXPIRE_DURATION = 120 * SECOND
 
@@ -147,6 +149,7 @@ export default {
       clock: null,
       currentTime: new Date().getTime(),
       standbyStartTime: null,
+      lastCorrectTime: null,
       isLoading: true
     }
   },
@@ -172,6 +175,11 @@ export default {
     isPlaying () {
       return this.gameStartTime &&
         (this.currentTime - this.gameStartTime >= 0)
+    },
+    isHintActive () {
+      return this.isPlaying &&
+        this.$store.state.settings.useHint &&
+        (this.currentTime - this.lastCorrectTime >= HINT_DURATION)
     },
     isTimeover () {
       return this.isPlaying &&
@@ -218,9 +226,11 @@ export default {
       this.standbyNumbers = shuffledNumbers.slice(this.cardCount)
       this.isLoading = false
       this.standbyStartTime = new Date().getTime()
+      this.lastCorrectTime = this.standbyStartTime + STANDBY_DURATION
     },
     tapping (num, index) {
       if (!this.isTimeover && num === this.nextNumber) {
+        this.lastCorrectTime = new Date().getTime()
         this.exposedNumbers[index] = false
         this.nextNumber += 1
 
