@@ -86,7 +86,8 @@ export default {
         },
         {
           icon: 'fas fa-cog',
-          title: '설정'
+          title: '설정',
+          to: '/settings'
         }
       ]
     }
