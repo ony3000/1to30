@@ -23,7 +23,13 @@
       <v-list-tile-content
         class="pr-1"
       >
-        <v-list-tile-title>{{ record.name }}</v-list-tile-title>
+        <v-list-tile-title
+          :class="{
+            'grey--text font-italic': !record.name
+          }"
+        >
+          {{ record.name ? record.name : '(이름 없음)' }}
+        </v-list-tile-title>
         <v-list-tile-sub-title>{{ record.score.toFixed(3) }}</v-list-tile-sub-title>
       </v-list-tile-content>
       <v-list-tile-action>

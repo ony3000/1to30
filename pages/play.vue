@@ -240,7 +240,7 @@ export default {
             const timestamp = new Date().getTime()
             setTimeout(() => {
               const score = this.elapsedTime / 1000
-              const name = prompt(`입력하는 이름으로 ${score}초 기록이 저장됩니다.`, '') || '(이름 없음)'
+              const name = prompt(`입력하는 이름으로 ${score}초 기록이 저장됩니다.`, '') || ''
               const userAgent = navigator.userAgent
               const newRecord = {
                 name,
