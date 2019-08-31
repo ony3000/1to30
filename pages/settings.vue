@@ -54,7 +54,7 @@
         v-if="$store.state.isStorageAvailable"
       >
         <v-list-tile
-          @click="openDialog"
+          @click="resetRanking"
         >
           <v-list-tile-content>
             <v-list-tile-title
@@ -66,32 +66,6 @@
         </v-list-tile>
       </v-list>
     </v-flex>
-    <v-dialog
-      v-if="$store.state.isStorageAvailable"
-      v-model="isDialogActive"
-      max-width="270"
-    >
-      <v-card>
-        <v-card-text>이 브라우저에서 달성한 모든 기록이 삭제됩니다.</v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="info"
-            outline
-            @click="closeDialog"
-          >
-            취소
-          </v-btn>
-          <v-btn
-            color="error"
-            outline
-            @click="deleteRanking"
-          >
-            삭제
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
     <v-snackbar
       v-model="snackbar.general"
       bottom
@@ -122,8 +96,7 @@ export default {
       snackbar: {
         general: false,
         deleteRanking: false
-      },
-      isDialogActive: false
+      }
     }
   },
   watch: {
@@ -145,16 +118,11 @@ export default {
     this.useHint = this.$store.state.settings.useHint
   },
   methods: {
-    openDialog () {
-      this.isDialogActive = true
-    },
-    closeDialog () {
-      this.isDialogActive = false
-    },
-    deleteRanking () {
-      this.$store.commit('deleteRecords')
-      this.snackbar.deleteRanking = true
-      this.closeDialog()
+    resetRanking () {
+      if (confirm('이 브라우저에서 달성한 모든 기록이 삭제됩니다.')) {
+        this.$store.commit('deleteRecords')
+        this.snackbar.deleteRanking = true
+      }
     },
     resetSettings () {
       this.useDarkTheme = false
