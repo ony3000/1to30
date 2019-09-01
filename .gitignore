@@ -135,4 +135,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Service worker
+sw.*
+
 # End of https://www.gitignore.io/api/node,vuejs,windows,visualstudiocode
