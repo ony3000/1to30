@@ -5,18 +5,6 @@ export default {
   ** Headers of the page
   */
   head: {
-    htmlAttrs: {
-      lang: 'ko'
-    },
-    title: '1부터 30까지!',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
   },
   /*
   ** Customize the progress-bar color
@@ -58,5 +46,25 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+  /*
+  ** Nuxt PWA configuration
+  */
+  meta: {
+    appleStatusBarStyle: 'black-translucent',
+    name: '1부터 30까지!',
+    description: '1부터 30까지 빠르게 누르는 게임입니다.',
+    lang: 'ko',
+    nativeUI: true
+  },
+  manifest: {
+    name: '1부터 30까지!',
+    short_name: '1 to 30!',
+    start_url: '/',
+    display: 'standalone',
+    orientation: 'portrait',
+    background_color: '#fafafa',
+    theme_color: '#ffc039',
+    lang: 'ko'
   }
 }
