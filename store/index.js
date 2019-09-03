@@ -23,25 +23,20 @@ function storageAvailable (type) {
   }
 }
 
-const baseSettings = {
-  useDarkTheme: false,
-  useHint: true
-}
-
 const baseState = {
   isStorageAvailable: storageAvailable('localStorage'),
   ranking: [],
   settings: {
-    ...baseSettings
+    useDarkTheme: false,
+    useHint: true
   }
 }
 
 if (baseState.isStorageAvailable) {
   const storage = window.localStorage
-  let storedData
 
   const ranking = []
-  storedData = storage.getItem('1to30:ranking')
+  const storedData = storage.getItem('1to30:ranking')
   if (storedData) {
     try {
       ranking.push(...JSON.parse(storedData))
@@ -51,20 +46,6 @@ if (baseState.isStorageAvailable) {
   }
   storage.setItem('1to30:ranking', JSON.stringify(ranking))
   baseState.ranking = ranking
-
-  const settings = {
-    ...baseSettings
-  }
-  storedData = storage.getItem('1to30:settings')
-  if (storedData) {
-    try {
-      Object.assign(settings, JSON.parse(storedData))
-    } catch (e) {
-      console.warn(e)
-    }
-  }
-  storage.setItem('1to30:settings', JSON.stringify(settings))
-  baseState.settings = settings
 }
 
 export const state = () => ({
@@ -77,52 +58,5 @@ export const mutations = {
       ...state.ranking,
       newRecord
     ]
-  },
-  deleteRecords (state) {
-    state.ranking = []
-    if (state.isStorageAvailable) {
-      const storage = window.localStorage
-      storage.setItem('1to30:ranking', JSON.stringify([]))
-    }
-  },
-  setDarkTheme (state, value) {
-    state.settings.useDarkTheme = value
-    if (state.isStorageAvailable) {
-      const storage = window.localStorage
-
-      const settings = {
-        ...baseSettings
-      }
-      const storedData = storage.getItem('1to30:settings')
-      if (storedData) {
-        try {
-          Object.assign(settings, JSON.parse(storedData))
-        } catch (e) {
-          console.warn(e)
-        }
-      }
-      settings.useDarkTheme = value
-      storage.setItem('1to30:settings', JSON.stringify(settings))
-    }
-  },
-  setHint (state, value) {
-    state.settings.useHint = value
-    if (state.isStorageAvailable) {
-      const storage = window.localStorage
-
-      const settings = {
-        ...baseSettings
-      }
-      const storedData = storage.getItem('1to30:settings')
-      if (storedData) {
-        try {
-          Object.assign(settings, JSON.parse(storedData))
-        } catch (e) {
-          console.warn(e)
-        }
-      }
-      settings.useHint = value
-      storage.setItem('1to30:settings', JSON.stringify(settings))
-    }
   }
 }

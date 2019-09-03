@@ -178,7 +178,6 @@ export default {
     },
     isHintActive () {
       return this.isPlaying &&
-        this.$store.state.settings.useHint &&
         (this.currentTime - this.lastCorrectTime >= HINT_DURATION)
     },
     isTimeover () {

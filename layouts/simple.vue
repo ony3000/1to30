@@ -1,7 +1,5 @@
 <template>
-  <v-app
-    :dark="$store.state.settings.useDarkTheme"
-  >
+  <v-app>
     <v-toolbar
       app
       dense
