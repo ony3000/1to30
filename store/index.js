@@ -25,6 +25,7 @@ function storageAvailable (type) {
 
 const baseState = {
   isStorageAvailable: storageAvailable('localStorage'),
+  contentPath: '/index',
   ranking: [],
   settings: {
     useDarkTheme: false,
@@ -53,6 +54,9 @@ export const state = () => ({
 })
 
 export const mutations = {
+  navigateContent (state, newPath) {
+    state.contentPath = newPath
+  },
   addRecord (state, newRecord) {
     state.ranking = [
       ...state.ranking,
