@@ -51,7 +51,6 @@ export default {
   ** Nuxt PWA configuration
   */
   meta: {
-    appleStatusBarStyle: 'black-translucent',
     name: '1부터 30까지!',
     description: '1부터 30까지 빠르게 누르는 게임입니다.',
     lang: 'ko',
