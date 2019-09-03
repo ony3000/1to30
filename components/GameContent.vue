@@ -137,8 +137,7 @@ const TIMEOVER_DURATION = 100 * SECOND
 const TIMER_EXPIRE_DURATION = 120 * SECOND
 
 export default {
-  name: 'PlayPage',
-  layout: 'simple',
+  name: 'GameContent',
   data () {
     return {
       cardCount: 16,

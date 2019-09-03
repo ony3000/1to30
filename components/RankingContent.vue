@@ -67,8 +67,7 @@ const HOUR = 60 * MINUTE
 const DAY = 24 * HOUR
 
 export default {
-  name: 'RankingPage',
-  layout: 'simple',
+  name: 'RankingContent',
   components: {
     RankingList
   },
