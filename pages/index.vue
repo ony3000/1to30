@@ -13,16 +13,21 @@
   <index-content
     v-else-if="!isLoading && contentPath === '/index'"
   />
+  <game-content
+    v-else-if="!isLoading && contentPath === '/game'"
+  />
 </template>
 
 <script>
 import IndexContent from '~/components/IndexContent'
+import GameContent from '~/components/GameContent'
 
 export default {
   name: 'IndexPage',
   layout: 'web-app',
   components: {
-    IndexContent
+    IndexContent,
+    GameContent
   },
   data () {
     return {

@@ -1,24 +1,29 @@
 <template>
   <v-layout
-    wrap
+    :row="isLandscape"
+    :column="!isLandscape"
     fill-height
     align-center
     justify-center
   >
-    <v-progress-circular
-      v-if="isLoading"
-      indeterminate
-      color="deep-brown-like"
-    />
     <v-flex
       v-if="!isLoading"
-      xs12
+      :xs4="isLandscape"
+      :xs3="!isLandscape"
+      class="content-section"
     >
       <v-layout
-        justify-space-between
+        :wrap="isLandscape"
+        fill-height
+        :align-center="isLandscape"
+        :align-end="!isLandscape"
+        :justify-end="isLandscape"
+        :justify-space-between="!isLandscape"
       >
         <v-flex
-          xs4
+          :xs12="isLandscape"
+          :xs4="!isLandscape"
+          class="progress-display"
         >
           <v-card>
             <v-card-title
@@ -40,7 +45,9 @@
           </v-card>
         </v-flex>
         <v-flex
-          xs7
+          :xs12="isLandscape"
+          :xs7="!isLandscape"
+          class="progress-display"
         >
           <v-card>
             <v-card-title
@@ -63,49 +70,62 @@
         </v-flex>
       </v-layout>
     </v-flex>
-    <v-sheet
+    <v-flex
       v-if="!isLoading"
-      width="288"
-      height="288"
-      color="transparent"
+      :xs8="isLandscape"
+      :xs9="!isLandscape"
+      class="content-section"
     >
       <v-layout
-        wrap
         fill-height
+        align-center
+        justify-center
       >
-        <v-flex
-          v-for="(num, index) in exposedNumbers"
-          :key="index"
-          xs3
-          pa-1
-          style="height: 25%;"
+        <v-sheet
+          width="288"
+          height="288"
+          color="transparent"
+          class="game-board"
         >
-          <v-card
-            :color="(num === nextNumber && isHintActive) ? 'brown' : 'amber-like'"
-            height="100%"
-            ripple
-            :light="!(num === nextNumber && isHintActive)"
-            :dark="num === nextNumber && isHintActive"
-            :flat="num === null || isTimeover"
-            :disabled="num === null || isTimeover"
-            class="number-tile"
-            :class="{
-              'is-disappear': (num === false)
-            }"
-            @click="tapping(num, index)"
+          <v-layout
+            wrap
+            fill-height
           >
-            <v-layout
-              fill-height
-              align-center
-              justify-center
-              headline
+            <v-flex
+              v-for="(num, index) in exposedNumbers"
+              :key="index"
+              xs3
+              pa-1
+              style="height: 25%;"
             >
-              {{ num ? num : '' }}
-            </v-layout>
-          </v-card>
-        </v-flex>
+              <v-card
+                :color="(num === nextNumber && isHintActive) ? 'brown' : 'amber-like'"
+                height="100%"
+                ripple
+                :light="!(num === nextNumber && isHintActive)"
+                :dark="num === nextNumber && isHintActive"
+                :flat="num === null || isTimeover"
+                :disabled="num === null || isTimeover"
+                class="number-tile"
+                :class="{
+                  'is-disappear': (num === false)
+                }"
+                @click="tapping(num, index)"
+              >
+                <v-layout
+                  fill-height
+                  align-center
+                  justify-center
+                  headline
+                >
+                  {{ num ? num : '' }}
+                </v-layout>
+              </v-card>
+            </v-flex>
+          </v-layout>
+        </v-sheet>
       </v-layout>
-    </v-sheet>
+    </v-flex>
     <v-dialog
       :value="isStandby"
       no-click-animation
@@ -205,6 +225,9 @@ export default {
       this.initialize()
     })
   },
+  beforeDestroy () {
+    clearInterval(this.clock)
+  },
   methods: {
     initialize () {
       const layerCount = Math.ceil(this.lastNumber / this.cardCount)
@@ -273,10 +296,6 @@ export default {
         }
       }
     }
-  },
-  beforeRouteLeave (to, from, next) {
-    clearInterval(this.clock)
-    next()
   }
 }
 </script>
@@ -297,6 +316,32 @@ export default {
   &.is-disappear {
     transition: transform 0.2s ease-out;
     transform: scale(0);
+  }
+}
+
+@media (orientation: portrait) {
+  .content-section {
+    width: 100%;
+  }
+
+  .game-board {
+    margin-bottom: calc(((100vh - 24px * 2) * 9 / 12 - 288px) / 5 + 16px);
+  }
+}
+
+@media (orientation: portrait) and (max-width: 959px) {
+  .game-board {
+    margin-bottom: calc(((100vh - 16px * 2) * 9 / 12 - 288px) / 5 + 16px);
+  }
+}
+
+@media (orientation: landscape) {
+  .content-section {
+    height: 100%;
+  }
+
+  .progress-display {
+    max-width: 220px;
   }
 }
 </style>

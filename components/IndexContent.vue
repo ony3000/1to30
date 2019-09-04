@@ -112,13 +112,13 @@ export default {
   }
 
   .game-logo {
-    margin-top: calc((50vh - 24px - 256px) / 2);
+    margin-top: calc(((100vh - 24px * 2) * 6 / 12 - 256px) / 2);
   }
 }
 
 @media (orientation: portrait) and (max-width: 959px) {
   .game-logo {
-    margin-top: calc((50vh - 16px - 256px) / 2);
+    margin-top: calc(((100vh - 16px * 2) * 6 / 12 - 256px) / 2);
   }
 }
 
@@ -128,7 +128,7 @@ export default {
   }
 
   .game-logo {
-    margin-left: calc((50vw - 24px - 256px) / 2);
+    margin-left: calc(((100vw - 24px * 2) * 6 / 12 - 256px) / 2);
   }
 
   .menu-wrapper {
@@ -138,7 +138,7 @@ export default {
 
 @media (orientation: landscape) and (max-width: 959px) {
   .game-logo {
-    margin-left: calc((50vw - 16px - 256px) / 2);
+    margin-left: calc(((100vw - 16px * 2) * 6 / 12 - 256px) / 2);
   }
 }
 </style>
