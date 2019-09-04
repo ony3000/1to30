@@ -8,3 +8,12 @@ Vue.use(Vuetify, {
     'deep-brown-like': '#3f240d'
   }
 })
+
+Vue.mixin({
+  computed: {
+    // reference - https://developer.mozilla.org/en-US/docs/Web/CSS/@media/orientation
+    isLandscape () {
+      return this.$vuetify.breakpoint.width > this.$vuetify.breakpoint.height
+    }
+  }
+})

@@ -93,12 +93,6 @@ export default {
       ]
     }
   },
-  computed: {
-    // reference - https://developer.mozilla.org/en-US/docs/Web/CSS/@media/orientation
-    isLandscape () {
-      return this.$vuetify.breakpoint.width > this.$vuetify.breakpoint.height
-    }
-  },
   methods: {
     navigateContent (path) {
       this.$store.commit('navigateContent', path)
