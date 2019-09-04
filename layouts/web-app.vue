@@ -15,13 +15,33 @@
           <nuxt />
         </v-sheet>
       </v-container>
+      <v-btn
+        v-if="contentPath !== '/index'"
+        icon
+        fixed
+        left
+        bottom
+        @click="navigateContent('/index')"
+      >
+        <v-icon>fas fa-arrow-left</v-icon>
+      </v-btn>
     </v-content>
   </v-app>
 </template>
 
 <script>
 export default {
-  name: 'WebAppLayout'
+  name: 'WebAppLayout',
+  computed: {
+    contentPath () {
+      return this.$store.state.contentPath
+    }
+  },
+  methods: {
+    navigateContent (path) {
+      this.$store.commit('navigateContent', path)
+    }
+  }
 }
 </script>
 
