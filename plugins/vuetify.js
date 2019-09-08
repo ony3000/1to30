@@ -5,7 +5,10 @@ Vue.use(Vuetify, {
   iconfont: 'fa',
   theme: {
     'amber-like': '#ffc039',
-    'deep-brown-like': '#3f240d'
+    'deep-brown-like': '#3f240d',
+    'gold-like': '#f4a622',
+    'silver-like': '#b9b9b9',
+    'bronze-like': '#d06a3d'
   }
 })
 

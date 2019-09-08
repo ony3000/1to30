@@ -19,6 +19,12 @@
         width="45"
       >
         <span>{{ 1 + index }}</span>
+        <v-icon
+          v-if="index < 3"
+          :color="medalColor[index]"
+        >
+          fas fa-medal
+        </v-icon>
       </v-sheet>
       <v-list-tile-content
         class="pr-1"
@@ -130,6 +136,15 @@ export default {
       default () {
         return []
       }
+    }
+  },
+  data () {
+    return {
+      medalColor: [
+        'gold-like',
+        'silver-like',
+        'bronze-like'
+      ]
     }
   }
 }
