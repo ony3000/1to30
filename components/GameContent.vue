@@ -23,50 +23,66 @@
         <v-flex
           :xs12="isLandscape"
           :xs4="!isLandscape"
-          class="progress-display"
         >
-          <v-card>
-            <v-card-title
-              class="py-1"
+          <v-layout
+            :justify-end="isLandscape"
+          >
+            <v-flex
+              xs12
+              class="progress-display"
             >
-              <div>
-                <div
-                  class="subheading"
+              <v-card>
+                <v-card-title
+                  class="py-1"
                 >
-                  Next
-                </div>
-                <div
-                  class="display-1"
-                >
-                  {{ nextNumber > lastNumber ? '-' : nextNumber }}
-                </div>
-              </div>
-            </v-card-title>
-          </v-card>
+                  <div>
+                    <div
+                      class="subheading"
+                    >
+                      Next
+                    </div>
+                    <div
+                      class="display-1"
+                    >
+                      {{ nextNumber > lastNumber ? '-' : nextNumber }}
+                    </div>
+                  </div>
+                </v-card-title>
+              </v-card>
+            </v-flex>
+          </v-layout>
         </v-flex>
         <v-flex
           :xs12="isLandscape"
           :xs7="!isLandscape"
-          class="progress-display"
         >
-          <v-card>
-            <v-card-title
-              class="py-1 justify-end text-xs-right"
+          <v-layout
+            :justify-end="isLandscape"
+          >
+            <v-flex
+              xs12
+              class="progress-display"
             >
-              <div>
-                <div
-                  class="subheading"
+              <v-card>
+                <v-card-title
+                  class="py-1 justify-end text-xs-right"
                 >
-                  Time
-                </div>
-                <div
-                  class="display-1"
-                >
-                  {{ (elapsedTime / 1000).toFixed(2) }}
-                </div>
-              </div>
-            </v-card-title>
-          </v-card>
+                  <div>
+                    <div
+                      class="subheading"
+                    >
+                      Time
+                    </div>
+                    <div
+                      class="display-1"
+                    >
+                      {{ (elapsedTime / 1000).toFixed(2) }}
+                    </div>
+                  </div>
+                </v-card-title>
+              </v-card>
+            </v-flex>
+          </v-layout>
         </v-flex>
       </v-layout>
     </v-flex>
