@@ -170,5 +170,6 @@ export default {
 <style lang="scss" scoped>
 .rank-sheet {
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 </style>
