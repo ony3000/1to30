@@ -86,7 +86,7 @@ export default {
           to: '/game'
         },
         {
-          icon: 'fas fa-chart-bar',
+          icon: 'fas fa-trophy',
           title: '기록 확인',
           to: '/ranking'
         }

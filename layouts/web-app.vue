@@ -10,7 +10,7 @@
           width="100%"
           height="100%"
           color="transparent"
-          class="board"
+          :class="(contentPath === '/ranking' ? 'ranking-board' : 'basic-board')"
         >
           <nuxt />
         </v-sheet>
@@ -61,14 +61,18 @@ html {
   overflow: hidden;
 }
 
+.ranking-board {
+  max-width: 540px;
+}
+
 @media (orientation: portrait) {
-  .board {
+  .basic-board {
     max-width: 540px;
   }
 }
 
 @media (orientation: landscape) {
-  .board {
+  .basic-board {
     max-height: 540px;
   }
 }
