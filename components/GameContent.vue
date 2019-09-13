@@ -104,6 +104,28 @@
           class="game-board"
         >
           <v-layout
+            v-if="isFinished || isTimeover"
+            fill-height
+            align-center
+            justify-center
+          >
+            <div>
+              <v-btn
+                color="amber-like"
+                light
+                @click="restartGame"
+              >
+                <v-icon
+                  left
+                >
+                  fas fa-redo-alt
+                </v-icon>
+                <span>다시 시작</span>
+              </v-btn>
+            </div>
+          </v-layout>
+          <v-layout
+            v-else
             wrap
             fill-height
           >
@@ -185,7 +207,8 @@ export default {
       currentTime: new Date().getTime(),
       standbyStartTime: null,
       lastCorrectTime: null,
-      isLoading: true
+      isLoading: true,
+      isFinished: false
     }
   },
   computed: {
@@ -232,12 +255,6 @@ export default {
   },
   mounted () {
     this.$nextTick(() => {
-      this.clock = setInterval(() => {
-        this.currentTime = new Date().getTime()
-      }, 5)
-      setTimeout(() => {
-        clearInterval(this.clock)
-      }, TIMER_EXPIRE_DURATION)
       this.initialize()
     })
   },
@@ -246,6 +263,12 @@ export default {
   },
   methods: {
     initialize () {
+      this.clock = setInterval(() => {
+        this.currentTime = new Date().getTime()
+      }, 5)
+      setTimeout(() => {
+        clearInterval(this.clock)
+      }, TIMER_EXPIRE_DURATION)
       const layerCount = Math.ceil(this.lastNumber / this.cardCount)
       const baseNumbers =
         Array(this.cardCount * layerCount)
@@ -273,6 +296,7 @@ export default {
 
         if (num === this.lastNumber) {
           clearInterval(this.clock)
+          this.isFinished = true
           if (this.$store.state.isStorageAvailable) {
             const timestamp = new Date().getTime()
             setTimeout(() => {
@@ -311,6 +335,15 @@ export default {
           }
         }
       }
+    },
+    restartGame () {
+      clearInterval(this.clock)
+      this.nextNumber = 1
+      this.standbyStartTime = null
+      this.lastCorrectTime = null
+      this.isLoading = true
+      this.isFinished = false
+      this.initialize()
     }
   }
 }
