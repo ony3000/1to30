@@ -60,7 +60,12 @@ import parser from 'ua-parser-js'
 import dayjs from '~/plugins/dayjs'
 import RankingList from '~/components/RankingList'
 
+const dummyElement = document.createElement('span')
+dummyElement.innerHTML = '&mdash;'
+
 const LAST_DISPLAY_RANK = 30
+const LAST_COUNTING_RANK = 99
+const OUT_OF_RANK_SYMBOL = dummyElement.innerHTML
 const SECOND = 1000
 const MINUTE = 60 * SECOND
 const HOUR = 60 * MINUTE
@@ -111,10 +116,37 @@ export default {
           return 0
         }
       })
+      const currentTimestamp = Number(this.currentMoment.format('x'))
+      ranking.forEach((record, index) => {
+        record.isRecent = currentTimestamp - record.timestamp < 5 * MINUTE
+      })
       return ranking
     },
+    latestRecord () {
+      const ranking = this.orderedRanking.filter((record) => {
+        return record.isRecent
+      })
+      ranking.sort((former, latter) => {
+        if (former.timestamp > latter.timestamp) {
+          return -1
+        } else if (former.timestamp < latter.timestamp) {
+          return 1
+        } else {
+          return 0
+        }
+      })
+      return ranking[0] || {}
+    },
     localRanking () {
-      const baseRanking = this.orderedRanking.slice(0, LAST_DISPLAY_RANK)
+      const baseRanking = this.orderedRanking.map((record, index) => {
+        return {
+          ...record,
+          rank: (index < LAST_COUNTING_RANK ? 1 + index : OUT_OF_RANK_SYMBOL),
+          isLatest: record.uuid === this.latestRecord.uuid
+        }
+      }).filter((record, index) => {
+        return index < LAST_DISPLAY_RANK || record.isLatest
+      })
       return baseRanking.map((record) => {
         const data = parser(record.userAgent)
         const moment = dayjs(record.timestamp)
@@ -144,7 +176,15 @@ export default {
       }
       const baseRanking = this.orderedRanking.filter((record) => {
         return record.timestamp >= midnightTimestamp
-      }).slice(0, LAST_DISPLAY_RANK)
+      }).map((record, index) => {
+        return {
+          ...record,
+          rank: (index < LAST_COUNTING_RANK ? 1 + index : OUT_OF_RANK_SYMBOL),
+          isLatest: record.uuid === this.latestRecord.uuid
+        }
+      }).filter((record, index) => {
+        return index < LAST_DISPLAY_RANK || record.isLatest
+      })
       return baseRanking.map((record) => {
         const data = parser(record.userAgent)
         const moment = dayjs(record.timestamp)

@@ -20,6 +20,7 @@
     "lodash": "^4.17.15",
     "nuxt": "^2.0.0",
     "ua-parser-js": "^0.7.20",
+    "uuid": "^3.3.2",
     "vuetify": "^1.5.16"
   },
   "devDependencies": {

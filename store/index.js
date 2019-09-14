@@ -1,3 +1,5 @@
+import uuid from '~/plugins/uuid'
+
 // reference - https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
 function storageAvailable (type) {
   let storage
@@ -45,6 +47,11 @@ if (baseState.isStorageAvailable) {
       console.warn(e)
     }
   }
+  ranking.forEach((record, index) => {
+    if (!('uuid' in record)) {
+      ranking[index].uuid = uuid()
+    }
+  })
   storage.setItem('1to30:ranking', JSON.stringify(ranking))
   baseState.ranking = ranking
 }

@@ -187,6 +187,7 @@
 
 <script>
 import shuffle from 'lodash/shuffle'
+import uuid from '~/plugins/uuid'
 
 const SECOND = 1000
 const STANDBY_DURATION = 3 * SECOND
@@ -307,7 +308,8 @@ export default {
                 name,
                 score,
                 timestamp,
-                userAgent
+                userAgent,
+                uuid: uuid()
               }
               const storage = window.localStorage
               let ranking = []

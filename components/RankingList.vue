@@ -18,7 +18,17 @@
       <v-sheet
         width="45"
       >
-        <span>{{ 1 + index }}</span>
+        <v-badge
+          color="red"
+          :value="record.isLatest"
+        >
+          <template
+            v-slot:badge
+          >
+            <span>N</span>
+          </template>
+          <span>{{ record.rank }}</span>
+        </v-badge>
         <v-icon
           v-if="index < 3"
           :color="medalColor[index]"
