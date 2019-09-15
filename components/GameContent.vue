@@ -298,36 +298,35 @@ export default {
         if (num === this.lastNumber) {
           clearInterval(this.clock)
           this.isFinished = true
-          if (this.$store.state.isStorageAvailable) {
-            const timestamp = new Date().getTime()
-            setTimeout(() => {
-              const score = this.elapsedTime / 1000
-              const name = prompt(`입력하는 이름으로 ${score}초 기록이 저장됩니다.`, '') || ''
-              const userAgent = navigator.userAgent
-              const newRecord = {
-                name,
-                score,
-                timestamp,
-                userAgent,
-                uuid: uuid()
-              }
+          const timestamp = new Date().getTime()
+          setTimeout(() => {
+            const score = this.elapsedTime / 1000
+            const name = prompt(`입력하는 이름으로 ${score}초 기록이 저장됩니다.`, '') || ''
+            const userAgent = navigator.userAgent
+            const newRecord = {
+              name,
+              score,
+              timestamp,
+              userAgent,
+              uuid: uuid()
+            }
+            const ranking = [
+              newRecord
+            ]
+            this.$store.commit('addRecord', newRecord)
+            if (this.$store.state.isStorageAvailable) {
               const storage = window.localStorage
-              let ranking = []
               const storedData = storage.getItem('1to30:ranking')
               if (storedData) {
                 try {
-                  ranking = JSON.parse(storedData)
+                  ranking.push(...JSON.parse(storedData))
                 } catch (e) {
                   console.warn(e)
                 }
               }
-              ranking.push(newRecord)
-              this.$store.commit('addRecord', newRecord)
               storage.setItem('1to30:ranking', JSON.stringify(ranking))
-            }, 200)
-          } else {
-            alert('로컬 저장소를 사용할 수 없습니다. 기록을 저장할 수 없습니다.')
-          }
+            }
+          }, 200)
         } else {
           const standbyNumber = this.standbyNumbers.shift()
           if (standbyNumber) {
