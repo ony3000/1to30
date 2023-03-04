@@ -11,7 +11,7 @@
   display: inherit;
   justify-content: inherit;
   align-items: inherit;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   max-width: var(--max-width);
   width: 100%;
   z-index: 2;
@@ -22,16 +22,42 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
   gap: 0.5rem;
 }
 
+.description p,
+.description div {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+}
+
 .description p {
-  position: relative;
+  align-items: center;
+  inset: 0 0 auto;
   margin: 0;
-  padding: 1rem;
-  background-color: rgba(var(--callout-rgb), 0.5);
-  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
-  border-radius: var(--border-radius);
+  padding: 2rem 1rem 1.4rem;
+  border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.25);
+  border-radius: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--background-start-rgb), 1),
+    rgba(var(--callout-rgb), 0.5)
+  );
+  background-clip: padding-box;
+  backdrop-filter: blur(24px);
+}
+
+.description div {
+  align-items: flex-end;
+  pointer-events: none;
+  inset: auto 0 0;
+  padding: 2rem;
+  height: 200px;
+  background: linear-gradient(to bottom, transparent 0%, rgb(var(--background-end-rgb)) 40%);
+  z-index: 1;
 }
 
 .code {
@@ -41,9 +67,11 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(25%, auto));
+  grid-template-columns: 1fr;
+  margin-bottom: 120px;
   width: var(--max-width);
-  max-width: 100%;
+  max-width: 320px;
+  text-align: center;
 }
 
 .center {
@@ -51,18 +79,20 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  padding: 4rem 0;
+  padding: 8rem 0 6rem;
 }
 
 .center::before {
+  transform: none;
   background: var(--secondary-glow);
   border-radius: 50%;
   width: 480px;
-  height: 360px;
+  height: 300px;
   margin-left: -400px;
 }
 
 .center::after {
+  transform: translateZ(0);
   background: var(--primary-glow);
   width: 240px;
   height: 180px;
@@ -75,7 +105,6 @@
   left: 50%;
   position: absolute;
   filter: blur(45px);
-  transform: translateZ(0);
 }
 
 .logo,
@@ -131,71 +160,68 @@
   }
 }
 
-/* Mobile */
-@media (max-width: 700px) {
+/* Tablet and above */
+@media (min-width: 701px) {
   .grid {
-    grid-template-columns: 1fr;
-    margin-bottom: 120px;
-    max-width: 320px;
-    text-align: center;
+    grid-template-columns: repeat(2, 50%);
+    margin-bottom: 0;
+    max-width: 100%;
+    text-align: start;
   }
 
   .center {
-    padding: 8rem 0 6rem;
+    padding: 4rem 0;
   }
 
   .center::before {
-    transform: none;
-    height: 300px;
+    transform: translateZ(0);
+    height: 360px;
   }
 
   .description {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
 
   .description a {
-    padding: 1rem;
+    padding: 0;
   }
 
   .description p,
   .description div {
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    width: 100%;
+    display: block;
+    justify-content: normal;
+    width: auto;
   }
 
   .description p {
-    align-items: center;
-    inset: 0 0 auto;
-    padding: 2rem 1rem 1.4rem;
-    border-radius: 0;
-    border: none;
-    border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.25);
-    background: linear-gradient(
-      to bottom,
-      rgba(var(--background-start-rgb), 1),
-      rgba(var(--callout-rgb), 0.5)
-    );
-    background-clip: padding-box;
-    backdrop-filter: blur(24px);
+    align-items: normal;
+    inset: 0;
+    position: relative;
+    padding: 1rem;
+    border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+    border-radius: var(--border-radius);
+    background: none;
+    background-color: rgba(var(--callout-rgb), 0.5);
+    background-clip: border-box;
+    backdrop-filter: none;
   }
 
   .description div {
-    align-items: flex-end;
-    pointer-events: none;
-    inset: auto 0 0;
-    padding: 2rem;
-    height: 200px;
-    background: linear-gradient(to bottom, transparent 0%, rgb(var(--background-end-rgb)) 40%);
-    z-index: 1;
+    align-items: normal;
+    pointer-events: auto;
+    inset: auto;
+    position: static;
+    padding: 0;
+    height: auto;
+    background: none;
+    z-index: auto;
   }
 }
 
-/* Tablet and Smaller Desktop */
-@media (min-width: 701px) and (max-width: 1120px) {
+/* Smaller Desktop and above */
+@media (min-width: 1121px) {
   .grid {
-    grid-template-columns: repeat(2, 50%);
+    grid-template-columns: repeat(4, minmax(25%, auto));
   }
 }
 
