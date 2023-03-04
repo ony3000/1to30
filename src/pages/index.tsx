@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import classNames from 'classnames';
 import styles from '@/styles/Home.module.css';
 import CardLink from '@/components/CardLink';
 
@@ -21,15 +22,31 @@ export default function Home() {
           href="/favicon.ico"
         />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
+      <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <div
+          className={classNames(
+            styles.description,
+            'z-[2] w-full max-w-[1100px] font-mono text-[12.8px] [display:inherit] [align-items:inherit] [justify-content:inherit]',
+          )}
+        >
+          <p
+            className={classNames(
+              'fixed flex w-full justify-center',
+              'inset-0 bottom-auto m-0 items-center rounded-none px-4 pt-8 pb-[22.4px] backdrop-blur-xl',
+            )}
+          >
             Get started by editing&nbsp;
-            <code className={styles.code}>src/pages/index.tsx</code>
+            <code className="font-bold">src/pages/index.tsx</code>
           </p>
-          <div>
+          <div
+            className={classNames(
+              'fixed flex w-full justify-center',
+              'pointer-events-none inset-0 top-auto z-[1] h-[200px] items-end p-8',
+            )}
+          >
             <a
               href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+              className="flex items-center justify-center gap-2 p-4"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -46,16 +63,34 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={styles.center}>
+        <div
+          className={classNames(
+            styles.center,
+            'relative flex items-center justify-center pt-32 pb-24',
+            'before:absolute before:left-1/2 before:blur-[45px] before:content-[""]',
+            'before:-ml-[400px] before:h-[300px] before:w-[480px] before:transform-none before:rounded-full',
+            'after:absolute after:left-1/2 after:blur-[45px] after:content-[""]',
+            'after:-z-[1] after:h-[180px] after:w-60 after:[transform:translateZ(0)]',
+          )}
+        >
           <Image
-            className={styles.logo}
+            className={classNames(styles.logo, 'relative')}
             src="/next.svg"
             alt="Next.js Logo"
             width={180}
             height={37}
             priority
           />
-          <div className={styles.thirteen}>
+          <div
+            className={classNames(
+              styles.thirteen,
+              'relative ml-4 flex h-[75px] w-[75px] items-center justify-center overflow-hidden rounded-xl px-2.5 py-[25px] shadow-[0_2px_8px_-1px] shadow-black/10 [transform:translateZ(0)]',
+              'before:absolute before:-z-[1] before:content-[""]',
+              'before:h-[200%] before:w-[200%] before:animate-[6s_rotate_linear_infinite]',
+              'after:absolute after:-z-[1] after:content-[""]',
+              'after:inset-0 after:rounded-xl after:p-px',
+            )}
+          >
             <Image
               src="/thirteen.svg"
               alt="13"
@@ -66,7 +101,12 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={styles.grid}>
+        <div
+          className={classNames(
+            styles.grid,
+            'mb-[120px] grid w-[1100px] max-w-xs grid-cols-[1fr] text-center',
+          )}
+        >
           <CardLink
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
             title="Docs"

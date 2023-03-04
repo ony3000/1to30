@@ -133,7 +133,38 @@ module.exports = {
       80: rem2px('20rem'),
       96: rem2px('24rem'),
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        mono: [
+          'ui-monospace',
+          'Menlo',
+          'Monaco',
+          '"Cascadia Mono"',
+          '"Segoe UI Mono"',
+          '"Roboto Mono"',
+          '"Oxygen Mono"',
+          '"Ubuntu Monospace"',
+          '"Source Code Pro"',
+          '"Fira Mono"',
+          '"Droid Sans Mono"',
+          '"Courier New"',
+          'monospace',
+        ],
+      },
+      keyframes: {
+        rotate: {
+          from: {
+            transform: 'rotate(360deg)',
+          },
+          to: {
+            transform: 'rotate(0deg)',
+          },
+        },
+      },
+      transitionTimingFunction: {
+        ease: 'ease',
+      },
+    },
   },
   plugins: [],
 };

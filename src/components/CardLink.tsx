@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google';
+import classNames from 'classnames';
 import styles from '@/styles/CardLink.module.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -13,14 +14,25 @@ export default function CardLink({ href, title, description }: CardLinkProps) {
   return (
     <a
       href={href}
-      className={styles.card}
+      className={classNames(
+        styles.card,
+        'rounded-xl py-4 px-10 transition-[background,border] duration-200 ease-ease',
+      )}
       target="_blank"
       rel="noopener noreferrer"
     >
-      <h2 className={inter.className}>
-        {title} <span>-&gt;</span>
+      <h2 className={classNames(inter.className, 'mb-2 font-semibold')}>
+        {title}{' '}
+        <span className="inline-block transition-transform duration-200 ease-ease">-&gt;</span>
       </h2>
-      <p className={inter.className}>{description}</p>
+      <p
+        className={classNames(
+          inter.className,
+          'm-0 max-w-[30ch] text-[14.4px] leading-normal opacity-60',
+        )}
+      >
+        {description}
+      </p>
     </a>
   );
 }
