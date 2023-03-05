@@ -84,7 +84,7 @@ export default function Home() {
           <div
             className={classNames(
               styles.thirteen,
-              'relative ml-4 flex h-[75px] w-[75px] items-center justify-center overflow-hidden rounded-xl px-2.5 py-[25px] shadow-[0_2px_8px_-1px] shadow-black/10 [transform:translateZ(0)]',
+              'relative ml-4 flex h-[75px] w-[75px] items-center justify-center overflow-hidden rounded-xl px-2.5 py-[25px] shadow-[0_2px_8px_-1px] shadow-black/[.102] [transform:translateZ(0)]',
               'before:absolute before:-z-[1] before:content-[""]',
               'before:h-[200%] before:w-[200%] before:animate-[6s_rotate_linear_infinite]',
               'after:absolute after:-z-[1] after:content-[""]',
