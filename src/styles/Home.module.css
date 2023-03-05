@@ -113,6 +113,6 @@
 
   .logo,
   .thirteen img {
-    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
+    filter: invert(1) drop-shadow(0 0 0.3rem /* white/43.9 */ #ffffff70);
   }
 }
