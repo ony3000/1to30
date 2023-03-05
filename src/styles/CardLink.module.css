@@ -15,14 +15,3 @@
     transform: none;
   }
 }
-
-/* Tablet and above */
-@media (min-width: 701px) {
-  .card {
-    padding: 1rem 1.2rem;
-  }
-
-  .card h2 {
-    margin-bottom: 0.7rem;
-  }
-}

@@ -32,10 +32,6 @@
   /* white */
   --background-end-rgb: 255, 255, 255;
 
-  /* gray-100 */
-  --callout-rgb: 238, 240, 241;
-  /* zinc-400 */
-  --callout-border-rgb: 172, 175, 176;
   /* gray-400 */
   --card-rgb: 180, 185, 188;
   /* zinc-500 */
@@ -51,10 +47,6 @@
     /* black */
     --background-end-rgb: 0, 0, 0;
 
-    /* neutral-900 */
-    --callout-rgb: 20, 20, 20;
-    /* neutral-500 */
-    --callout-border-rgb: 108, 108, 108;
     /* stone-500 */
     --card-rgb: 100, 100, 100;
     /* stone-300 */

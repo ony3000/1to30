@@ -19,11 +19,12 @@ export default function CardLink({ href, title, description }: CardLinkProps) {
         'rounded-xl border border-solid py-4 px-10 transition-[background,border] duration-200 ease-ease',
         'border-zinc-500/0 bg-gray-400/0',
         'dark:border-stone-300/0 dark:bg-stone-500/0',
+        'tablet:px-[19.2px]',
       )}
       target="_blank"
       rel="noopener noreferrer"
     >
-      <h2 className={classNames(inter.className, 'mb-2 font-semibold')}>
+      <h2 className={classNames(inter.className, 'mb-2 font-semibold tablet:mb-[11.2px]')}>
         {title}{' '}
         <span className="inline-block transition-transform duration-200 ease-ease">-&gt;</span>
       </h2>
