@@ -16,7 +16,9 @@ export default function CardLink({ href, title, description }: CardLinkProps) {
       href={href}
       className={classNames(
         styles.card,
-        'rounded-xl py-4 px-10 transition-[background,border] duration-200 ease-ease',
+        'rounded-xl border border-solid py-4 px-10 transition-[background,border] duration-200 ease-ease',
+        'border-zinc-500/0 bg-gray-400/0',
+        'dark:border-stone-300/0 dark:bg-stone-500/0',
       )}
       target="_blank"
       rel="noopener noreferrer"

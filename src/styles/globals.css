@@ -2,6 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .bg-conic-from-t {
+    background-image: conic-gradient(from 0deg at 50% 50%, var(--tw-gradient-stops));
+  }
+
+  .bg-conic-from-r {
+    background-image: conic-gradient(from 90deg at 50% 50%, var(--tw-gradient-stops));
+  }
+
+  .bg-conic-from-b {
+    background-image: conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops));
+  }
+
+  .bg-conic-from-l {
+    background-image: conic-gradient(from 270deg at 50% 50%, var(--tw-gradient-stops));
+  }
+
+  .bg-radial {
+    background-image: radial-gradient(circle at center, var(--tw-gradient-stops));
+  }
+}
+
 :root {
   /* black */
   --foreground-rgb: 0, 0, 0;
@@ -9,33 +31,6 @@
   --background-start-rgb: 214, 219, 220;
   /* white */
   --background-end-rgb: 255, 255, 255;
-
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    /* *sky-400/20 */ #16abff33 0deg,
-    /* sky-500/20 */ #0885ff33 55deg,
-    /* cyan-300/20 */ #54d6ff33 120deg,
-    /* blue-600/20 */ #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    /* white or white/100 */ rgba(255, 255, 255, 1),
-    /* white/0 */ rgba(255, 255, 255, 0)
-  );
-
-  /* slate-100 */
-  --tile-start-rgb: 239, 245, 249;
-  /* gray-200 */
-  --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    /* black/50.2 */ #00000080,
-    /* black/25.1 */ #00000040,
-    /* black/18.8 */ #00000030,
-    /* black/12.5 */ #00000020,
-    /* black/6.3 */ #00000010,
-    /* black/6.3 */ #00000010,
-    /* black/50.2 */ #00000080
-  );
 
   /* gray-100 */
   --callout-rgb: 238, 240, 241;
@@ -55,31 +50,6 @@
     --background-start-rgb: 0, 0, 0;
     /* black */
     --background-end-rgb: 0, 0, 0;
-
-    --primary-glow: radial-gradient(
-      /* blue-700/40 */ rgba(1, 65, 255, 0.4),
-      /* blue-700/0 */ rgba(1, 65, 255, 0)
-    );
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      /* blue-700/0 */ rgba(1, 65, 255, 0),
-      /* blue-700/0 */ rgba(1, 65, 255, 0),
-      /* blue-700/30 */ rgba(1, 65, 255, 0.3)
-    );
-
-    /* slate-900 */
-    --tile-start-rgb: 2, 13, 46;
-    /* black */
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      /* white/50.2 */ #ffffff80,
-      /* white/25.1 */ #ffffff40,
-      /* white/18.8 */ #ffffff30,
-      /* white/12.5 */ #ffffff20,
-      /* white/6.3 */ #ffffff10,
-      /* white/6.3 */ #ffffff10,
-      /* white/50.2 */ #ffffff80
-    );
 
     /* neutral-900 */
     --callout-rgb: 20, 20, 20;

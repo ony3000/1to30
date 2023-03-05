@@ -32,7 +32,9 @@ export default function Home() {
           <p
             className={classNames(
               'fixed flex w-full justify-center',
-              'inset-0 bottom-auto m-0 items-center rounded-none px-4 pt-8 pb-[22.4px] backdrop-blur-xl',
+              'inset-0 bottom-auto m-0 items-center rounded-none border-b border-solid bg-gradient-to-b bg-clip-padding px-4 pt-8 pb-[22.4px] backdrop-blur-xl',
+              'border-zinc-400/25 from-gray-300 to-gray-100/50',
+              'dark:border-neutral-500/25 dark:from-black dark:to-neutral-900/50',
             )}
           >
             Get started by editing&nbsp;
@@ -41,7 +43,9 @@ export default function Home() {
           <div
             className={classNames(
               'fixed flex w-full justify-center',
-              'pointer-events-none inset-0 top-auto z-[1] h-[200px] items-end p-8',
+              'pointer-events-none inset-0 top-auto z-[1] h-[200px] items-end bg-gradient-to-b from-transparent p-8',
+              'to-[#fff_40%]',
+              'dark:to-[#000_40%]',
             )}
           >
             <a
@@ -54,7 +58,7 @@ export default function Home() {
               <Image
                 src="/vercel.svg"
                 alt="Vercel Logo"
-                className={styles.vercelLogo}
+                className="dark:invert"
                 width={100}
                 height={24}
                 priority
@@ -71,10 +75,14 @@ export default function Home() {
             'before:-ml-[400px] before:h-[300px] before:w-[480px] before:transform-none before:rounded-full',
             'after:absolute after:left-1/2 after:blur-[45px] after:content-[""]',
             'after:-z-[1] after:h-[180px] after:w-60 after:[transform:translateZ(0)]',
+            'before:bg-radial before:from-white before:to-white/0',
+            'after:bg-conic-from-b after:[--tw-gradient-stops:#38bdf833_0deg,#0ea5e933_55deg,#67e8f933_120deg,#2563eb33_160deg,transparent_360deg]',
+            'dark:before:bg-gradient-to-br dark:before:from-blue-700/0 dark:before:via-blue-700/0 dark:before:to-blue-700/30',
+            'dark:after:bg-radial dark:after:from-blue-700/40 dark:after:to-blue-700/0',
           )}
         >
           <Image
-            className={classNames(styles.logo, 'relative')}
+            className="relative dark:drop-shadow-[0_0_4.8px_#ffffff70] dark:invert"
             src="/next.svg"
             alt="Next.js Logo"
             width={180}
@@ -86,12 +94,17 @@ export default function Home() {
               styles.thirteen,
               'relative ml-4 flex h-[75px] w-[75px] items-center justify-center overflow-hidden rounded-xl px-2.5 py-[25px] shadow-[0_2px_8px_-1px] shadow-black/[.102] [transform:translateZ(0)]',
               'before:absolute before:-z-[1] before:content-[""]',
-              'before:h-[200%] before:w-[200%] before:animate-[6s_rotate_linear_infinite]',
+              'before:bg-conic-from-t before:h-[200%] before:w-[200%] before:animate-[6s_rotate_linear_infinite]',
               'after:absolute after:-z-[1] after:content-[""]',
-              'after:inset-0 after:rounded-xl after:p-px',
+              'after:inset-0 after:rounded-xl after:bg-gradient-to-br after:bg-clip-content after:p-px',
+              'before:[--tw-gradient-stops:#00000080,#00000040,#00000030,#00000020,#00000010,#00000010,#00000080]',
+              'after:from-slate-100 after:to-gray-200',
+              'dark:before:[--tw-gradient-stops:#ffffff80,#ffffff40,#ffffff30,#ffffff20,#ffffff10,#ffffff10,#ffffff80]',
+              'dark:after:from-slate-900 dark:after:to-black',
             )}
           >
             <Image
+              className="dark:drop-shadow-[0_0_4.8px_#ffffff70] dark:invert"
               src="/thirteen.svg"
               alt="13"
               width={40}
