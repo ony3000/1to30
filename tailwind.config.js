@@ -165,6 +165,9 @@ module.exports = {
           },
         },
       },
+      screens: {
+        'non-touch-device': { raw: '(hover: hover) and (pointer: fine)' },
+      },
       transitionTimingFunction: {
         ease: 'ease',
       },

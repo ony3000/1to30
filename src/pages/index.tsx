@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import classNames from 'classnames';
-import styles from '@/styles/Home.module.css';
 import CardLink from '@/components/CardLink';
 
 export default function Home() {
@@ -97,16 +96,16 @@ export default function Home() {
           />
           <div
             className={classNames(
-              styles.thirteen,
               'relative ml-4 flex h-[75px] w-[75px] items-center justify-center overflow-hidden rounded-xl px-2.5 py-[25px] shadow-[0_2px_8px_-1px] shadow-black/[.102] [transform:translateZ(0)]',
               'before:absolute before:-z-[1] before:content-[""]',
-              'before:bg-conic-from-t before:h-[200%] before:w-[200%] before:animate-[6s_rotate_linear_infinite]',
+              'before:bg-conic-from-t before:h-[200%] before:w-[200%]',
               'after:absolute after:-z-[1] after:content-[""]',
               'after:inset-0 after:rounded-xl after:bg-gradient-to-br after:bg-clip-content after:p-px',
               'before:[--tw-gradient-stops:#00000080,#00000040,#00000030,#00000020,#00000010,#00000010,#00000080]',
               'after:from-slate-100 after:to-gray-200',
               'dark:before:[--tw-gradient-stops:#ffffff80,#ffffff40,#ffffff30,#ffffff20,#ffffff10,#ffffff10,#ffffff80]',
               'dark:after:from-slate-900 dark:after:to-black',
+              'motion-safe:before:animate-[6s_rotate_linear_infinite]',
             )}
           >
             <Image

@@ -31,11 +31,6 @@
   --background-start-rgb: 214, 219, 220;
   /* white */
   --background-end-rgb: 255, 255, 255;
-
-  /* gray-400 */
-  --card-rgb: 180, 185, 188;
-  /* zinc-500 */
-  --card-border-rgb: 131, 134, 135;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -46,11 +41,6 @@
     --background-start-rgb: 0, 0, 0;
     /* black */
     --background-end-rgb: 0, 0, 0;
-
-    /* stone-500 */
-    --card-rgb: 100, 100, 100;
-    /* stone-300 */
-    --card-border-rgb: 200, 200, 200;
   }
 }
 
