@@ -34,7 +34,7 @@ export default function Home() {
               'inset-0 bottom-auto m-0 items-center rounded-none border-b border-solid bg-gradient-to-b bg-clip-padding px-4 pt-8 pb-[22.4px] backdrop-blur-xl',
               'border-zinc-400/25 from-gray-300 to-gray-100/50',
               'dark:border-neutral-500/25 dark:from-black dark:to-neutral-900/50',
-              'tablet:block tablet:w-auto tablet:[justify-content:normal] tablet:[align-items:normal]',
+              'tablet:block tablet:w-auto',
               'tablet:relative tablet:bottom-0 tablet:rounded-xl tablet:border tablet:bg-none tablet:bg-clip-border tablet:py-4 tablet:backdrop-filter-none',
               'tablet:border-zinc-400/30 tablet:bg-gray-100/50',
               'dark:tablet:border-neutral-500/30 dark:tablet:bg-neutral-900/50',
@@ -49,8 +49,8 @@ export default function Home() {
               'pointer-events-none inset-0 top-auto z-[1] h-[200px] items-end bg-gradient-to-b from-transparent p-8',
               'to-[#fff_40%]',
               'dark:to-[#000_40%]',
-              'tablet:block tablet:w-auto tablet:[justify-content:normal] tablet:[align-items:normal]',
-              'tablet:pointer-events-auto tablet:static tablet:inset-auto tablet:z-auto tablet:h-auto tablet:bg-none tablet:p-0',
+              'tablet:block tablet:w-auto',
+              'tablet:pointer-events-auto tablet:static tablet:z-auto tablet:h-auto tablet:bg-none tablet:p-0',
             )}
           >
             <a
