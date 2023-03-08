@@ -78,12 +78,12 @@ export default function Home() {
             'before:absolute before:left-1/2 before:blur-[45px] before:content-[""]',
             'before:-ml-[400px] before:h-[300px] before:w-[480px] before:transform-none before:rounded-full',
             'after:absolute after:left-1/2 after:blur-[45px] after:content-[""]',
-            'after:-z-[1] after:h-[180px] after:w-60 after:[transform:translateZ(0)]',
+            'after:-z-[1] after:h-[180px] after:w-60 after:translate-z-0',
             'before:bg-radial before:from-white before:to-white/0',
             'after:bg-conic-from-b after:[--tw-gradient-stops:#38bdf833_0deg,#0ea5e933_55deg,#67e8f933_120deg,#2563eb33_160deg,transparent_360deg]',
             'dark:before:bg-gradient-to-br dark:before:from-blue-700/0 dark:before:via-blue-700/0 dark:before:to-blue-700/30',
             'dark:after:bg-radial dark:after:from-blue-700/40 dark:after:to-blue-700/0',
-            'tablet:py-16 tablet:before:h-[360px] tablet:before:[transform:translateZ(0)]',
+            'tablet:py-16 tablet:before:h-[360px] tablet:before:translate-z-0',
           )}
         >
           <Image
@@ -96,7 +96,7 @@ export default function Home() {
           />
           <div
             className={classNames(
-              'relative ml-4 flex h-[75px] w-[75px] items-center justify-center overflow-hidden rounded-xl px-2.5 py-[25px] shadow-[0_2px_8px_-1px] shadow-black/[.102] [transform:translateZ(0)]',
+              'relative ml-4 flex h-[75px] w-[75px] items-center justify-center overflow-hidden rounded-xl px-2.5 py-[25px] shadow-[0_2px_8px_-1px] shadow-black/[.102] translate-z-0',
               'before:absolute before:-z-[1] before:content-[""]',
               'before:bg-conic-from-t before:h-[200%] before:w-[200%]',
               'after:absolute after:-z-[1] after:content-[""]',
