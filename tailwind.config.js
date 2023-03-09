@@ -157,16 +157,6 @@ module.exports = {
           'monospace',
         ],
       },
-      keyframes: {
-        rotate: {
-          from: {
-            transform: 'rotate(360deg)',
-          },
-          to: {
-            transform: 'rotate(0deg)',
-          },
-        },
-      },
       screens: {
         'non-touch-device': { raw: '(hover: hover) and (pointer: fine)' },
       },

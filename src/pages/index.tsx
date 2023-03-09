@@ -96,7 +96,7 @@ export default function Home() {
           />
           <div
             className={classNames(
-              'relative ml-4 flex h-[75px] w-[75px] items-center justify-center overflow-hidden rounded-xl px-2.5 py-[25px] shadow-[0_2px_8px_-1px] shadow-black/[.102] translate-z-0',
+              'relative ml-4 flex h-[75px] w-[75px] items-center justify-center overflow-hidden rounded-xl px-2.5 py-[25px] shadow-[0_2px_8px_-1px_#0000001a] translate-z-0',
               'before:absolute before:-z-[1] before:content-[""]',
               'before:bg-conic-from-t before:h-[200%] before:w-[200%]',
               'after:absolute after:-z-[1] after:content-[""]',
@@ -105,7 +105,7 @@ export default function Home() {
               'after:from-slate-100 after:to-gray-200',
               'dark:before:[--tw-gradient-stops:#ffffff80,#ffffff40,#ffffff30,#ffffff20,#ffffff10,#ffffff10,#ffffff80]',
               'dark:after:from-slate-900 dark:after:to-black',
-              'motion-safe:before:animate-[6s_rotate_linear_infinite]',
+              'motion-safe:before:animate-spin motion-safe:before:[animation-duration:6s] motion-safe:before:[animation-direction:reverse]',
             )}
           >
             <Image
@@ -121,9 +121,9 @@ export default function Home() {
 
         <div
           className={classNames(
-            'mb-[120px] grid w-[1100px] max-w-xs grid-cols-[1fr] text-center',
-            'tablet:mb-0 tablet:max-w-full tablet:grid-cols-[repeat(2,50%)] tablet:text-start',
-            'desktop:grid-cols-[repeat(4,minmax(25%,auto))]',
+            'mb-[120px] grid w-[1100px] max-w-xs grid-cols-1 text-center',
+            'tablet:mb-0 tablet:max-w-full tablet:grid-cols-2 tablet:text-start',
+            'desktop:grid-cols-4',
           )}
         >
           <CardLink
