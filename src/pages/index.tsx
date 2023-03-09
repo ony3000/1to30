@@ -74,7 +74,7 @@ export default function Home() {
 
         <div
           className={classNames(
-            'relative flex items-center justify-center pt-32 pb-24',
+            'relative flex w-max items-center justify-center pt-32 pb-24',
             'before:absolute before:left-1/2 before:blur-[45px] before:content-[""]',
             'before:-ml-[400px] before:h-[300px] before:w-[480px] before:transform-none before:rounded-full',
             'after:absolute after:left-1/2 after:blur-[45px] after:content-[""]',
