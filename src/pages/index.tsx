@@ -73,6 +73,7 @@ export default function Home() {
         </div>
 
         <div
+          data-testid="center-element"
           className={classNames(
             'relative flex w-max items-center justify-center pt-32 pb-24',
             'before:absolute before:left-1/2 before:blur-[45px] before:content-[""]',
