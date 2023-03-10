@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest --ci --passWithNoTests",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@testing-library/jest-dom": "5.16.5",
