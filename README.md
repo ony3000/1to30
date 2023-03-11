@@ -2,7 +2,15 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, you need to decide which package manager to use for this project. You have three options:
+
+- npm
+- yarn classic
+- pnpm
+
+This project contains the lockfiles of each package manager, so before installing the package, remove unused package manager lockfiles.
+
+After installing the package, run the development server:
 
 ```bash
 npm run dev
