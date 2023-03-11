@@ -5,8 +5,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, you need to decide which package manager to use for this project. You have three options:
 
 - npm
-- yarn classic
-- pnpm
+- [yarn classic](https://classic.yarnpkg.com/)
+- [pnpm](https://pnpm.io/)
 
 This project contains the lockfiles of each package manager, so before installing the package, remove unused package manager lockfiles.
 
