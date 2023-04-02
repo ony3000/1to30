@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
 /** @type {(size: string) => string} */
 const rem2px = (size) => `${Number.parseFloat(size) * 16}px`;
 
@@ -134,6 +136,9 @@ module.exports = {
       96: rem2px('24rem'),
     },
     extend: {
+      fontFamily: {
+        sans: ['var(--font-pretendard)', ...fontFamily.sans],
+      },
       screens: {
         'non-touch-device': { raw: '(hover: hover) and (pointer: fine)' },
       },
