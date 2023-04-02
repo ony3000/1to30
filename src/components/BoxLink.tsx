@@ -3,13 +3,13 @@ import classNames from 'classnames';
 
 const inter = Inter({ subsets: ['latin'] });
 
-type CardLinkProps = {
+type BoxLinkProps = {
   href: string;
   title: string;
   description: string;
 };
 
-export default function CardLink({ href, title, description }: CardLinkProps) {
+export default function BoxLink({ href, title, description }: BoxLinkProps) {
   return (
     <a
       href={href}
