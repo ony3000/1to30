@@ -3,12 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-  }
-
   html,
   body {
     max-width: 100vw;
@@ -21,11 +15,6 @@
       theme('colors.gray.300');
   }
 
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
   @media (prefers-color-scheme: dark) {
     body {
       color: theme('colors.white');
@@ -36,27 +25,5 @@
     html {
       color-scheme: dark;
     }
-  }
-}
-
-@layer utilities {
-  .bg-conic-from-t {
-    background-image: conic-gradient(from 0deg at 50% 50%, var(--tw-gradient-stops));
-  }
-
-  .bg-conic-from-r {
-    background-image: conic-gradient(from 90deg at 50% 50%, var(--tw-gradient-stops));
-  }
-
-  .bg-conic-from-b {
-    background-image: conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops));
-  }
-
-  .bg-conic-from-l {
-    background-image: conic-gradient(from 270deg at 50% 50%, var(--tw-gradient-stops));
-  }
-
-  .bg-radial {
-    background-image: radial-gradient(circle at center, var(--tw-gradient-stops));
   }
 }

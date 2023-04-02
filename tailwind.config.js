@@ -1,5 +1,3 @@
-const plugin = require('tailwindcss/plugin');
-
 /** @type {(size: string) => string} */
 const rem2px = (size) => `${Number.parseFloat(size) * 16}px`;
 
@@ -136,43 +134,10 @@ module.exports = {
       96: rem2px('24rem'),
     },
     extend: {
-      fontFamily: {
-        mono: [
-          'ui-monospace',
-          'Menlo',
-          'Monaco',
-          '"Cascadia Mono"',
-          '"Segoe UI Mono"',
-          '"Roboto Mono"',
-          '"Oxygen Mono"',
-          '"Ubuntu Monospace"',
-          '"Source Code Pro"',
-          '"Fira Mono"',
-          '"Droid Sans Mono"',
-          '"Courier New"',
-          'monospace',
-        ],
-      },
       screens: {
         'non-touch-device': { raw: '(hover: hover) and (pointer: fine)' },
       },
-      transitionTimingFunction: {
-        ease: 'ease',
-      },
     },
   },
-  plugins: [
-    plugin(({ matchUtilities, theme }) => {
-      matchUtilities(
-        {
-          'translate-z': (value) => ({
-            '--tw-translate-z': value,
-            transform:
-              'translate3d(var(--tw-translate-x), var(--tw-translate-y), var(--tw-translate-z)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))',
-          }),
-        },
-        { values: theme('spacing') },
-      );
-    }),
-  ],
+  plugins: [],
 };
