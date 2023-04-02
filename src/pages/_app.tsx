@@ -5,8 +5,8 @@ import { pretendard } from '@/fonts';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={classNames(pretendard.variable, 'font-sans')}>
+    <main className={classNames(pretendard.variable, 'font-sans')}>
       <Component {...pageProps} />
-    </div>
+    </main>
   );
 }

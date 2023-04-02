@@ -22,7 +22,7 @@ export default function Home() {
           href="/favicon.ico"
         />
       </Head>
-      <main
+      <div
         className={classNames(
           'flex min-h-screen flex-col gap-8 px-5 py-8',
           'sm:gap-16 sm:px-12 sm:py-16',
@@ -68,7 +68,7 @@ export default function Home() {
             description="Instantly deploy your Next.js site to a shareable URL with Vercel."
           />
         </div>
-      </main>
+      </div>
     </>
   );
 }
