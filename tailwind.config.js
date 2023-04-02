@@ -98,10 +98,6 @@ module.exports = {
       prose: '65ch',
       ...breakpoints(theme('screens')),
     }),
-    screens: {
-      tablet: '701px',
-      desktop: '1121px',
-    },
     spacing: {
       px: '1px',
       0: '0px',
