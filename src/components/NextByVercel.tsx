@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function NextByVercel() {
   return (
     <div
-      data-testid="center-element"
+      data-testid="logo-element"
       className="flex flex-wrap items-center justify-end gap-4 sm:justify-center"
     >
       <Image

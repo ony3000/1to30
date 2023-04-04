@@ -5,7 +5,7 @@ describe('Home', () => {
   it('Renders the Next.js logo', () => {
     render(<Home />);
 
-    const element = screen.getByTestId('center-element');
+    const element = screen.getByTestId('logo-element');
 
     expect(element).toBeInTheDocument();
   });
