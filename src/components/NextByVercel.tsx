@@ -2,7 +2,10 @@ import Image from 'next/image';
 
 export default function NextByVercel() {
   return (
-    <div className="flex flex-wrap items-center justify-end gap-4 sm:justify-center">
+    <div
+      data-testid="center-element"
+      className="flex flex-wrap items-center justify-end gap-4 sm:justify-center"
+    >
       <Image
         className="dark:drop-shadow-[0_0_4.8px_#ffffff70] dark:invert"
         src="/next.svg"
