@@ -1,8 +1,6 @@
 import Head from 'next/head';
 import classNames from 'classnames';
-import BoxLink from '@/components/BoxLink';
-import Callout from '@/components/Callout';
-import NextByVercel from '@/components/NextByVercel';
+import { BoxLink, Callout, NextByVercel } from '@/components';
 
 export default function Home() {
   return (
