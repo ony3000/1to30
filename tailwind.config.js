@@ -136,6 +136,15 @@ module.exports = {
       96: rem2px('24rem'),
     },
     extend: {
+      colors: {
+        legacy: {
+          amber: '#ffc039',
+          brown: '#3f240d',
+          gold: '#f4a622',
+          silver: '#b9b9b9',
+          bronze: '#d06a3d',
+        },
+      },
       fontFamily: {
         sans: ['var(--font-pretendard)', ...fontFamily.sans],
       },
