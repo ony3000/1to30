@@ -1,6 +1,7 @@
 {
   "name": "1부터 30까지!",
   "short_name": "1 to 30!",
+  "description": "1부터 30까지 빠르게 누르는 게임입니다.",
   "icons": [
     { "src": "/icons/icon-64x64.png", "sizes": "64x64", "type": "image/png" },
     { "src": "/icons/icon-120x120.png", "sizes": "120x120", "type": "image/png" },
