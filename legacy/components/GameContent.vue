@@ -310,22 +310,7 @@ export default {
               userAgent,
               uuid: uuid()
             }
-            const ranking = [
-              newRecord
-            ]
             this.$store.commit('addRecord', newRecord)
-            if (this.$store.state.isStorageAvailable) {
-              const storage = window.localStorage
-              const storedData = storage.getItem('1to30:ranking')
-              if (storedData) {
-                try {
-                  ranking.push(...JSON.parse(storedData))
-                } catch (e) {
-                  console.warn(e)
-                }
-              }
-              storage.setItem('1to30:ranking', JSON.stringify(ranking))
-            }
           }, 200)
         } else {
           const standbyNumber = this.standbyNumbers.shift()

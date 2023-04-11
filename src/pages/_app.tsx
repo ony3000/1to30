@@ -2,8 +2,8 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import classNames from 'classnames';
-import { pretendard } from '@/fonts';
+import { RecoilRoot } from 'recoil';
+import { AppMain } from '@/components';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -72,9 +72,11 @@ export default function App({ Component, pageProps }: AppProps) {
           href="/favicon.ico"
         />
       </Head>
-      <main className={classNames(pretendard.variable, 'font-sans')}>
-        <Component {...pageProps} />
-      </main>
+      <RecoilRoot>
+        <AppMain>
+          <Component {...pageProps} />
+        </AppMain>
+      </RecoilRoot>
     </>
   );
 }
