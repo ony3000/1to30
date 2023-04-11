@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:react/jsx-runtime",
+    "prettier"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "import/prefer-default-export": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/require-default-props": [
+      2,
+      {
+        "functions": "defaultArguments"
+      }
+    ]
+  }
+}

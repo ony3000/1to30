@@ -5,23 +5,15 @@
 
 ## Requirements
 
-* Node 10+
+- Node 16
+- [pnpm v7](https://pnpm.io/)
 
-## Build Setup
+## Getting Started
 
-``` bash
+```bash
 # install dependencies
-$ pnpm install
+pnpm install
 
 # serve with hot reload at localhost:3000
-$ pnpm run dev
-
-# build for production and launch server
-$ pnpm run build
-$ pnpm run start
-
-# generate static project
-$ pnpm run generate
+pnpm run dev
 ```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
