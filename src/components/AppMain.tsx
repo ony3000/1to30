@@ -4,6 +4,7 @@ import { useRecoilState } from 'recoil';
 import classNames from 'classnames';
 import { pretendard } from '@/fonts';
 import { isClientReadyState } from '@/store/atoms';
+import { VeeApp, VeeContent, VeeContainer, VeeSheet } from '@/components/vuetify-imitation';
 
 export default function AppMain({ children }: ComponentProps<'main'>) {
   const [isClientReady, setIsClientReady] = useRecoilState(isClientReadyState);
@@ -14,5 +15,17 @@ export default function AppMain({ children }: ComponentProps<'main'>) {
     }
   }, [isClientReady, setIsClientReady]);
 
-  return <main className={classNames(pretendard.variable, 'font-sans')}>{children}</main>;
+  return (
+    <main className={classNames(pretendard.variable, 'font-sans')}>
+      <VeeApp>
+        <VeeContent>
+          <VeeContainer>
+            <VeeSheet className="h-full w-full !border-transparent !bg-transparent portrait:max-w-[540px] landscape:max-h-[540px]">
+              {children}
+            </VeeSheet>
+          </VeeContainer>
+        </VeeContent>
+      </VeeApp>
+    </main>
+  );
 }
