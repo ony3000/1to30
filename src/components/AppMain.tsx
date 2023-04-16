@@ -1,7 +1,7 @@
 import type { ComponentProps } from 'react';
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
-import classNames from 'classnames';
+import { classNames } from '@/adaptors';
 import { pretendard } from '@/fonts';
 import { isClientReadyState } from '@/store/atoms';
 import { VeeApp, VeeContent, VeeContainer, VeeSheet } from '@/components/vuetify-imitation';

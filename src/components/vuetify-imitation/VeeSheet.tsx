@@ -1,5 +1,5 @@
 import type { ComponentProps } from 'react';
-import classNames from 'classnames';
+import { classNames } from '@/adaptors';
 
 export default function VeeSheet({ className, children }: ComponentProps<'div'>) {
   return (
