@@ -33,7 +33,7 @@ export default function IndexContent() {
           >
             <VeeLayout className="justify-center">
               <VeeFlex>
-                <VeeButton className="mx-0 flex w-full flex-1 bg-legacy-amber">
+                <VeeButton className="!mx-0 flex w-full flex-1 bg-legacy-amber">
                   <VeeIcon className="fas fa-th mr-4" />
                   <span className="text-[16px]">게임 시작</span>
                 </VeeButton>
@@ -41,7 +41,7 @@ export default function IndexContent() {
             </VeeLayout>
             <VeeLayout className="justify-center">
               <VeeFlex>
-                <VeeButton className="mx-0 flex w-full flex-1 bg-legacy-brown text-white">
+                <VeeButton className="!mx-0 flex w-full flex-1 bg-legacy-brown text-white">
                   <VeeIcon className="fas fa-trophy mr-4" />
                   <span className="text-[16px]">기록 확인</span>
                 </VeeButton>
