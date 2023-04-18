@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
-import { LoadingContent, IndexContent } from '@/components/contents';
+import { useRecoilValue } from 'recoil';
+import { contentState } from '@/store/atoms';
+import { LoadingContent, IndexContent, GameContent, RankingContent } from '@/components/contents';
+import { ContentEnum } from '@/types';
 
 export default function Home() {
+  const content = useRecoilValue(contentState);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -17,7 +21,9 @@ export default function Home() {
   return (
     <>
       {isLoading && <LoadingContent />}
-      {!isLoading && <IndexContent />}
+      {!isLoading && content === ContentEnum.index && <IndexContent />}
+      {!isLoading && content === ContentEnum.game && <GameContent />}
+      {!isLoading && content === ContentEnum.ranking && <RankingContent />}
     </>
   );
 }

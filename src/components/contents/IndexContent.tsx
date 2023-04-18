@@ -1,9 +1,14 @@
 import Image from 'next/image';
+import { useSetRecoilState } from 'recoil';
 import { classNames } from '@/adaptors';
+import { contentState } from '@/store/atoms';
 import { VeeLayout, VeeFlex, VeeButton, VeeIcon } from '@/components/vuetify-imitation';
+import { ContentEnum } from '@/types';
 import logoImage from '@/assets/images/icon-256.png';
 
 export default function IndexContent() {
+  const setContent = useSetRecoilState(contentState);
+
   return (
     <VeeLayout className="h-full items-center justify-center portrait:flex-col">
       <VeeFlex className="grow-0 basis-1/2 portrait:w-full landscape:h-full">
@@ -33,7 +38,10 @@ export default function IndexContent() {
           >
             <VeeLayout className="justify-center">
               <VeeFlex>
-                <VeeButton className="!mx-0 flex w-full flex-1 bg-legacy-amber">
+                <VeeButton
+                  className="!mx-0 flex w-full flex-1 bg-legacy-amber"
+                  onClick={() => setContent(ContentEnum.game)}
+                >
                   <VeeIcon className="fas fa-th mr-4" />
                   <span className="text-[16px]">게임 시작</span>
                 </VeeButton>
@@ -41,7 +49,10 @@ export default function IndexContent() {
             </VeeLayout>
             <VeeLayout className="justify-center">
               <VeeFlex>
-                <VeeButton className="!mx-0 flex w-full flex-1 bg-legacy-brown text-white">
+                <VeeButton
+                  className="!mx-0 flex w-full flex-1 bg-legacy-brown text-white"
+                  onClick={() => setContent(ContentEnum.ranking)}
+                >
                   <VeeIcon className="fas fa-trophy mr-4" />
                   <span className="text-[16px]">기록 확인</span>
                 </VeeButton>

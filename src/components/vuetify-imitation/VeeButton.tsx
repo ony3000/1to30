@@ -1,7 +1,7 @@
 import type { ComponentProps } from 'react';
 import { classNames } from '@/adaptors';
 
-export default function VeeButton({ className, children }: ComponentProps<'button'>) {
+export default function VeeButton({ className, onClick, children }: ComponentProps<'button'>) {
   return (
     <button
       type="button"
@@ -17,6 +17,7 @@ export default function VeeButton({ className, children }: ComponentProps<'butto
         active:before:bg-current active:before:opacity-20`,
         className,
       )}
+      onClick={onClick}
     >
       <div
         className={classNames(
