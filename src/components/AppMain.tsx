@@ -41,7 +41,7 @@ export default function AppMain({ children }: ComponentProps<'main'>) {
           {content !== ContentEnum.index && (
             <VeeButton
               className={classNames(
-                `!fixed left-4 bottom-4 !m-0 w-9 !min-w-0 justify-center rounded-full bg-transparent p-0
+                `!fixed left-4 bottom-4 !m-0 w-9 !min-w-0 justify-center !rounded-full bg-transparent p-0
                 text-black/90 !shadow-none`,
               )}
               onClick={() => setContent(ContentEnum.index)}
