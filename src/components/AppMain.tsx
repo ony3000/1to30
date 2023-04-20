@@ -31,8 +31,11 @@ export default function AppMain({ children }: ComponentProps<'main'>) {
           <VeeContainer>
             <VeeSheet
               className={classNames(
-                `h-full w-full !border-transparent !bg-transparent portrait:max-w-[540px]
-                landscape:max-h-[540px]`,
+                'h-full w-full !border-transparent !bg-transparent',
+                { 'max-w-[540px]': content === ContentEnum.ranking },
+                {
+                  'portrait:max-w-[540px] landscape:max-h-[540px]': content !== ContentEnum.ranking,
+                },
               )}
             >
               {children}
