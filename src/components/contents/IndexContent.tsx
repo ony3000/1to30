@@ -42,7 +42,7 @@ export default function IndexContent() {
                   className="!mx-0 flex w-full flex-1 bg-legacy-amber"
                   onClick={() => setContent(ContentEnum.game)}
                 >
-                  <VeeIcon className="fas fa-th mr-4" />
+                  <VeeIcon className="fas fa-th mr-4 text-inherit" />
                   <span className="text-[16px]">게임 시작</span>
                 </VeeButton>
               </VeeFlex>
@@ -53,7 +53,7 @@ export default function IndexContent() {
                   className="!mx-0 flex w-full flex-1 bg-legacy-brown text-white"
                   onClick={() => setContent(ContentEnum.ranking)}
                 >
-                  <VeeIcon className="fas fa-trophy mr-4" />
+                  <VeeIcon className="fas fa-trophy mr-4 text-inherit" />
                   <span className="text-[16px]">기록 확인</span>
                 </VeeButton>
               </VeeFlex>

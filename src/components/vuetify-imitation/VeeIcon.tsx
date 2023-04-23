@@ -5,7 +5,7 @@ export default function VeeIcon({ className, children }: ComponentProps<'i'>) {
   return (
     <i
       className={classNames(
-        'inline-flex items-center justify-center align-text-bottom text-[24px] leading-none',
+        'inline-flex items-center justify-center align-text-bottom text-[24px] leading-none text-black/50',
         className,
       )}
     >

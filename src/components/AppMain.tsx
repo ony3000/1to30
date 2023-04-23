@@ -49,7 +49,7 @@ export default function AppMain({ children }: ComponentProps<'main'>) {
               )}
               onClick={() => setContent(ContentEnum.index)}
             >
-              <VeeIcon className="fas fa-arrow-left" />
+              <VeeIcon className="fas fa-arrow-left text-inherit" />
             </VeeButton>
           )}
         </VeeContent>
