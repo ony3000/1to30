@@ -10,7 +10,7 @@ export const isClientReadyState = atom({
 
 export const contentState = atom({
   key: 'contentState',
-  default: ContentEnum.index,
+  default: ContentEnum.INDEX,
 });
 
 export const rankingState = atom<Record[]>({

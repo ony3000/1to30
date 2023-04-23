@@ -21,9 +21,9 @@ export default function Home() {
   return (
     <>
       {isLoading && <LoadingContent />}
-      {!isLoading && content === ContentEnum.index && <IndexContent />}
-      {!isLoading && content === ContentEnum.game && <GameContent />}
-      {!isLoading && content === ContentEnum.ranking && <RankingContent />}
+      {!isLoading && content === ContentEnum.INDEX && <IndexContent />}
+      {!isLoading && content === ContentEnum.GAME && <GameContent />}
+      {!isLoading && content === ContentEnum.RANKING && <RankingContent />}
     </>
   );
 }

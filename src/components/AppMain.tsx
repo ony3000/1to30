@@ -32,22 +32,22 @@ export default function AppMain({ children }: ComponentProps<'main'>) {
             <VeeSheet
               className={classNames(
                 'h-full w-full !border-transparent !bg-transparent',
-                { 'max-w-[540px]': content === ContentEnum.ranking },
+                { 'max-w-[540px]': content === ContentEnum.RANKING },
                 {
-                  'portrait:max-w-[540px] landscape:max-h-[540px]': content !== ContentEnum.ranking,
+                  'portrait:max-w-[540px] landscape:max-h-[540px]': content !== ContentEnum.RANKING,
                 },
               )}
             >
               {children}
             </VeeSheet>
           </VeeContainer>
-          {content !== ContentEnum.index && (
+          {content !== ContentEnum.INDEX && (
             <VeeButton
               className={classNames(
                 `!fixed left-4 bottom-4 !m-0 w-9 !min-w-0 justify-center !rounded-full bg-transparent p-0
                 text-black/90 !shadow-none`,
               )}
-              onClick={() => setContent(ContentEnum.index)}
+              onClick={() => setContent(ContentEnum.INDEX)}
             >
               <VeeIcon className="fas fa-arrow-left text-inherit" />
             </VeeButton>

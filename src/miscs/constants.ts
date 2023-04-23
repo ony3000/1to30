@@ -1,5 +1,5 @@
 export enum ContentEnum {
-  index = '/index',
-  game = '/game',
-  ranking = '/ranking',
+  INDEX = '/index',
+  GAME = '/game',
+  RANKING = '/ranking',
 }

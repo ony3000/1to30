@@ -40,7 +40,7 @@ export default function IndexContent() {
               <VeeFlex>
                 <VeeButton
                   className="!mx-0 flex w-full flex-1 bg-legacy-amber"
-                  onClick={() => setContent(ContentEnum.game)}
+                  onClick={() => setContent(ContentEnum.GAME)}
                 >
                   <VeeIcon className="fas fa-th mr-4 text-inherit" />
                   <span className="text-[16px]">게임 시작</span>
@@ -51,7 +51,7 @@ export default function IndexContent() {
               <VeeFlex>
                 <VeeButton
                   className="!mx-0 flex w-full flex-1 bg-legacy-brown text-white"
-                  onClick={() => setContent(ContentEnum.ranking)}
+                  onClick={() => setContent(ContentEnum.RANKING)}
                 >
                   <VeeIcon className="fas fa-trophy mr-4 text-inherit" />
                   <span className="text-[16px]">기록 확인</span>
