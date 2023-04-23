@@ -1,4 +1,5 @@
 export { default as VeeApp } from './VeeApp';
+export { default as VeeBadge } from './VeeBadge';
 export { default as VeeButton } from './VeeButton';
 export { default as VeeContainer } from './VeeContainer';
 export { default as VeeContent } from './VeeContent';
