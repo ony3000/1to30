@@ -3,7 +3,7 @@ import { useSetRecoilState } from 'recoil';
 import { classNames } from '@/adaptors';
 import { contentState } from '@/store/atoms';
 import { VeeLayout, VeeFlex, VeeButton, VeeIcon } from '@/components/vuetify-imitation';
-import { ContentEnum } from '@/types';
+import { ContentEnum } from '@/miscs/constants';
 import logoImage from '@/assets/images/icon-256.png';
 
 export default function IndexContent() {

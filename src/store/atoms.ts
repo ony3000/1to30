@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
 import { uuid } from '@/adaptors';
-import type { Record } from '@/types';
-import { ContentEnum } from '@/types';
+import type { Record } from '@/miscs/types';
+import { ContentEnum } from '@/miscs/constants';
 
 export const isClientReadyState = atom({
   key: 'isClientReadyState',

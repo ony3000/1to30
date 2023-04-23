@@ -12,7 +12,7 @@ import {
   VeeButton,
   VeeIcon,
 } from '@/components/vuetify-imitation';
-import { ContentEnum } from '@/types';
+import { ContentEnum } from '@/miscs/constants';
 
 export default function AppMain({ children }: ComponentProps<'main'>) {
   const [isClientReady, setIsClientReady] = useRecoilState(isClientReadyState);

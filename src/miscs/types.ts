@@ -5,9 +5,3 @@ export type Record = {
   userAgent: string;
   uuid: string;
 };
-
-export enum ContentEnum {
-  index = '/index',
-  game = '/game',
-  ranking = '/ranking',
-}
