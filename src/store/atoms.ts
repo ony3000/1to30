@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
 import { uuid } from '@/adaptors';
-import type { Record } from '@/miscs/types';
+import type { GameRecord } from '@/miscs/types';
 import { ContentEnum } from '@/miscs/constants';
 
 export const isClientReadyState = atom({
@@ -13,7 +13,7 @@ export const contentState = atom({
   default: ContentEnum.INDEX,
 });
 
-export const rankingState = atom<Record[]>({
+export const rankingState = atom<GameRecord[]>({
   key: 'rankingState',
   default: [],
   effects: [
@@ -29,7 +29,7 @@ export const rankingState = atom<Record[]>({
 
             if (Array.isArray(parsedData)) {
               const ranking = (parsedData as unknown[])
-                .map<Record>((item) => {
+                .map<GameRecord>((item) => {
                   if (
                     typeof item === 'object' &&
                     item !== null &&

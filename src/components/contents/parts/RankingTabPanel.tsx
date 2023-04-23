@@ -19,14 +19,14 @@ export default function RankingTabPanel({ data = [] }: RankingTabPanelProps) {
         )}
         {!isEmpty && (
           <div className="py-2">
-            {data.map((record, index) => (
+            {data.map((gameRecord, index) => (
               <div className="relative flex h-14 items-center px-4 text-[16px] text-[inherit]">
                 <VeeSheet className="w-[45px]">
                   <VeeBadge
                     element={<span>N</span>}
-                    isActive={record.isLatest}
+                    isActive={gameRecord.isLatest}
                   >
-                    <span className="inline-block min-w-[10px]">{record.rank}</span>
+                    <span className="inline-block min-w-[10px]">{gameRecord.rank}</span>
                   </VeeBadge>{' '}
                   {index < 3 && <VeeIcon className="fas fa-medal" />}
                 </VeeSheet>
@@ -38,17 +38,17 @@ export default function RankingTabPanel({ data = [] }: RankingTabPanelProps) {
                 >
                   <div
                     className={classNames('relative h-6 truncate leading-6', {
-                      'italic text-neutral-400': !record.name,
+                      'italic text-neutral-400': !gameRecord.name,
                     })}
                   >
-                    {record.name || '(이름 없음)'}
+                    {gameRecord.name || '(이름 없음)'}
                   </div>
                   <div className="truncate text-[14px] text-black/50">
-                    {(record.score || 12.34).toFixed(3)}
+                    {(gameRecord.score || 12.34).toFixed(3)}
                   </div>
                 </div>
                 <div className="flex min-w-[56px] flex-col items-end justify-between whitespace-nowrap py-2">
-                  <span className="text-[13px] text-neutral-400">{record.readableDate}</span>
+                  <span className="text-[13px] text-neutral-400">{gameRecord.readableDate}</span>
                   <span>
                     <VeeIcon className="fab fa-windows" /> <VeeIcon className="fab fa-chrome" />
                   </span>

@@ -1,4 +1,4 @@
-export type Record = {
+export type GameRecord = {
   name: string;
   score: number;
   timestamp: number;
