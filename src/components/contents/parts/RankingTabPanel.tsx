@@ -1,9 +1,10 @@
 import { Tab } from '@headlessui/react';
 import { classNames } from '@/adaptors';
 import { VeeSheet, VeeLayout, VeeBadge, VeeIcon } from '@/components/vuetify-imitation';
+import type { RefinedGameRecord } from '@/miscs/types';
 
 type RankingTabPanelProps = {
-  data?: unknown[];
+  data?: RefinedGameRecord[];
 };
 
 export default function RankingTabPanel({ data = [] }: RankingTabPanelProps) {
@@ -28,7 +29,16 @@ export default function RankingTabPanel({ data = [] }: RankingTabPanelProps) {
                   >
                     <span className="inline-block min-w-[10px]">{gameRecord.rank}</span>
                   </VeeBadge>{' '}
-                  {index < 3 && <VeeIcon className="fas fa-medal" />}
+                  {index < 3 && (
+                    <VeeIcon
+                      className={classNames(
+                        'fas fa-medal',
+                        { 'text-legacy-gold': gameRecord.rank === '1' },
+                        { 'text-legacy-silver': gameRecord.rank === '2' },
+                        { 'text-legacy-bronze': gameRecord.rank === '3' },
+                      )}
+                    />
+                  )}
                 </VeeSheet>
                 <div
                   className={classNames(
@@ -44,13 +54,14 @@ export default function RankingTabPanel({ data = [] }: RankingTabPanelProps) {
                     {gameRecord.name || '(이름 없음)'}
                   </div>
                   <div className="truncate text-[14px] text-black/50">
-                    {(gameRecord.score || 12.34).toFixed(3)}
+                    {gameRecord.score.toFixed(3)}
                   </div>
                 </div>
                 <div className="flex min-w-[56px] flex-col items-end justify-between whitespace-nowrap py-2">
-                  <span className="text-[13px] text-neutral-400">{gameRecord.readableDate}</span>
+                  <span className="text-[13px] text-neutral-400">{gameRecord.relativeTime}</span>
                   <span>
-                    <VeeIcon className="fab fa-windows" /> <VeeIcon className="fab fa-chrome" />
+                    <VeeIcon className={gameRecord.osIconClassName} />{' '}
+                    <VeeIcon className={gameRecord.browserIconClassName} />
                   </span>
                 </div>
               </div>

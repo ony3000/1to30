@@ -124,8 +124,8 @@ export default function RankingContent() {
             <RankingTab>Daily</RankingTab>
           </Tab.List>
           <Tab.Panels className="h-[calc(100%-48px)]">
-            <RankingTabPanel />
-            <RankingTabPanel />
+            <RankingTabPanel data={localRanking} />
+            <RankingTabPanel data={dailyRanking} />
           </Tab.Panels>
         </Tab.Group>
       </VeeFlex>
