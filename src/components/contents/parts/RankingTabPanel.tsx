@@ -21,7 +21,10 @@ export default function RankingTabPanel({ data = [] }: RankingTabPanelProps) {
         {!isEmpty && (
           <div className="py-2">
             {data.map((gameRecord, index) => (
-              <div className="relative flex h-14 items-center px-4 text-[16px] text-[inherit]">
+              <div
+                key={gameRecord.uuid}
+                className="relative flex h-14 items-center px-4 text-[16px] text-[inherit]"
+              >
                 <VeeSheet className="w-[45px]">
                   <VeeBadge
                     element={<span>N</span>}
