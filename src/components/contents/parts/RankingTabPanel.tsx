@@ -1,6 +1,12 @@
 import { Tab } from '@headlessui/react';
 import { classNames } from '@/adaptors';
-import { VeeSheet, VeeLayout, VeeBadge, VeeIcon } from '@/components/vuetify-imitation';
+import {
+  VeeSheet,
+  VeeLayout,
+  VeeBadge,
+  VeeIcon,
+  VeeLeftTooltip,
+} from '@/components/vuetify-imitation';
 import type { RefinedGameRecord } from '@/miscs/types';
 
 type RankingTabPanelProps = {
@@ -61,7 +67,9 @@ export default function RankingTabPanel({ data = [] }: RankingTabPanelProps) {
                   </div>
                 </div>
                 <div className="flex min-w-[56px] flex-col items-end justify-between whitespace-nowrap py-2">
-                  <span className="text-[13px] text-neutral-400">{gameRecord.relativeTime}</span>
+                  <VeeLeftTooltip element={<span>{gameRecord.formattedDate}</span>}>
+                    <span className="text-[13px] text-neutral-400">{gameRecord.relativeTime}</span>
+                  </VeeLeftTooltip>
                   <span>
                     <VeeIcon className={gameRecord.osIconClassName} />{' '}
                     <VeeIcon className={gameRecord.browserIconClassName} />

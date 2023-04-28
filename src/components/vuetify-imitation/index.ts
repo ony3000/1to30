@@ -6,4 +6,5 @@ export { default as VeeContent } from './VeeContent';
 export { default as VeeFlex } from './VeeFlex';
 export { default as VeeIcon } from './VeeIcon';
 export { default as VeeLayout } from './VeeLayout';
+export { default as VeeLeftTooltip } from './VeeLeftTooltip';
 export { default as VeeSheet } from './VeeSheet';
