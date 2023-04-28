@@ -5,7 +5,7 @@ import parser from 'ua-parser-js';
 import { dayjs } from '@/adaptors';
 import { rankingState } from '@/store/atoms';
 import { VeeLayout, VeeFlex } from '@/components/vuetify-imitation';
-import type { RankedGameRecord, RefinedGameRecord } from '@/miscs/types';
+import type { GameRecord, RankedGameRecord, RefinedGameRecord } from '@/miscs/types';
 import { TimeEnum, RankEnum, OUT_OF_RANK_SYMBOL } from '@/miscs/constants';
 import { RankingTab, RankingTabPanel } from './parts';
 
@@ -28,6 +28,19 @@ export default function RankingContent() {
       .filter((gameRecord) => currentTimestamp - gameRecord.timestamp < TimeEnum.MINUTE * 5)
       .sort((former, latter) => latter.timestamp - former.timestamp)[0]?.uuid;
   }, [now, orderedRanking]);
+  const rankedGameRecordMapper = useCallback(
+    (gameRecord: GameRecord, index: number): RankedGameRecord => ({
+      ...gameRecord,
+      rank: index < RankEnum.LAST_PLACE ? String(1 + index) : OUT_OF_RANK_SYMBOL,
+      isLatest: gameRecord.uuid === latestGameRecordId,
+    }),
+    [latestGameRecordId],
+  );
+  const rankedGameRecordPredicate = useCallback(
+    (gameRecord: RankedGameRecord, index: number): boolean =>
+      index < RankEnum.LAST_VISIBLE_PLACE || gameRecord.isLatest,
+    [],
+  );
   const refinedGameRecordMapper = useCallback(
     (gameRecord: RankedGameRecord): RefinedGameRecord => {
       const parsedData = parser(gameRecord.userAgent);
@@ -92,28 +105,26 @@ export default function RankingContent() {
   const localRanking = useMemo(
     () =>
       orderedRanking
-        .map<RankedGameRecord>((gameRecord, index) => ({
-          ...gameRecord,
-          rank: index < RankEnum.LAST_PLACE ? String(1 + index) : OUT_OF_RANK_SYMBOL,
-          isLatest: gameRecord.uuid === latestGameRecordId,
-        }))
-        .filter((gameRecord, index) => index < RankEnum.LAST_VISIBLE_PLACE || gameRecord.isLatest)
+        .map(rankedGameRecordMapper)
+        .filter(rankedGameRecordPredicate)
         .map(refinedGameRecordMapper),
-    [latestGameRecordId, orderedRanking, refinedGameRecordMapper],
+    [orderedRanking, rankedGameRecordMapper, rankedGameRecordPredicate, refinedGameRecordMapper],
   );
   const dailyRanking = useMemo(() => {
     const midnightTimestamp = Number(now.startOf('day').format('x'));
 
     return orderedRanking
       .filter((gameRecord) => gameRecord.timestamp >= midnightTimestamp)
-      .map<RankedGameRecord>((gameRecord, index) => ({
-        ...gameRecord,
-        rank: index < RankEnum.LAST_PLACE ? String(1 + index) : OUT_OF_RANK_SYMBOL,
-        isLatest: gameRecord.uuid === latestGameRecordId,
-      }))
-      .filter((gameRecord, index) => index < RankEnum.LAST_VISIBLE_PLACE || gameRecord.isLatest)
+      .map(rankedGameRecordMapper)
+      .filter(rankedGameRecordPredicate)
       .map(refinedGameRecordMapper);
-  }, [latestGameRecordId, now, orderedRanking, refinedGameRecordMapper]);
+  }, [
+    now,
+    orderedRanking,
+    rankedGameRecordMapper,
+    rankedGameRecordPredicate,
+    refinedGameRecordMapper,
+  ]);
 
   return (
     <VeeLayout className="h-full !flex-wrap justify-center">
