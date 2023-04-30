@@ -8,13 +8,10 @@ import {
   VeeButton,
   VeeIcon,
 } from '@/components/vuetify-imitation';
+import { useGameContent } from '@/hooks';
 
 export default function GameContent() {
-  const countdown = 3;
-  const isLoading = false;
-  const isEnd = false;
-  const isTimeOver = true;
-  const isDisappear = false;
+  const { countdown, isLoading, isEnd, isTimeOver, isDisappear } = useGameContent();
 
   return (
     <VeeLayout className="h-full items-center justify-center portrait:flex-col">
