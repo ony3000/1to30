@@ -50,7 +50,7 @@ export default function IndexContent() {
             <VeeLayout className="justify-center">
               <VeeFlex>
                 <VeeButton
-                  className="!mx-0 flex w-full flex-1 bg-legacy-brown text-white"
+                  className="!mx-0 flex w-full flex-1 bg-legacy-deep-brown text-white"
                   onClick={() => setContent(ContentEnum.RANKING)}
                 >
                   <VeeIcon className="fas fa-trophy mr-4 text-inherit" />

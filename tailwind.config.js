@@ -145,7 +145,8 @@ module.exports = {
       colors: {
         legacy: {
           amber: '#ffc039',
-          brown: '#3f240d',
+          brown: '#795548',
+          'deep-brown': '#3f240d',
           gold: '#f4a622',
           silver: '#b9b9b9',
           bronze: '#d06a3d',

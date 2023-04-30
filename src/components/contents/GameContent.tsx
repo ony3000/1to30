@@ -100,7 +100,7 @@ export default function GameContent() {
                           <VeeButton
                             className={classNames(
                               '!m-0 h-full w-full !min-w-0 origin-center scale-100',
-                              { 'border-[#795548] bg-[#795548] text-white': isHintActive },
+                              { 'border-legacy-brown bg-legacy-brown text-white': isHintActive },
                               { 'border-legacy-amber bg-legacy-amber': !isHintActive },
                               { '!shadow-none before:hidden': isTimeOver },
                               { '!scale-0 transition-transform !duration-200': isDisappear },

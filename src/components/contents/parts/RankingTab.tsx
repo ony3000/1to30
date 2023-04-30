@@ -7,7 +7,7 @@ export default function RankingTab({ children }: TabProps<'button'>) {
     <Tab
       className={classNames(
         `inline-flex h-[inherit] flex-1 items-center justify-center align-middle text-[14px] font-medium
-        uppercase text-black/90 ui-selected:shadow-[inset_0_-2px_0_0] ui-selected:shadow-legacy-brown`,
+        uppercase text-black/90 ui-selected:shadow-[inset_0_-2px_0_0] ui-selected:shadow-legacy-deep-brown`,
       )}
     >
       {children}
