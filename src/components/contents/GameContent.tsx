@@ -13,13 +13,13 @@ import { useGameContent } from '@/hooks';
 export default function GameContent() {
   const {
     countdown,
-    isEnd,
     isTimeOver,
     isDisappear,
     isInitPhase,
     isPreparePhase,
     isProgressPhase,
     isEndPhase,
+    exposedTileNumbers,
   } = useGameContent();
 
   return (
@@ -35,7 +35,7 @@ export default function GameContent() {
           )}
         </VeeDialog>
       )}
-      {(isProgressPhase || isEndPhase) && (
+      {(isPreparePhase || isProgressPhase || isEndPhase) && (
         <>
           <VeeFlex className="grow-0 portrait:w-full portrait:basis-1/4 landscape:h-full landscape:basis-1/3">
             <VeeLayout
@@ -83,7 +83,7 @@ export default function GameContent() {
                   portrait:md:mb-[calc((((100vh-24px*2)*9/12)-288px)/5+16px)]`,
                 )}
               >
-                {isEnd && (
+                {isEndPhase && (
                   <VeeLayout className="h-full items-center justify-center">
                     <VeeButton
                       className="bg-legacy-amber px-4"
@@ -94,15 +94,14 @@ export default function GameContent() {
                     </VeeButton>
                   </VeeLayout>
                 )}
-                {!isEnd && (
+                {!isEndPhase && (
                   <VeeLayout className="h-full !flex-wrap">
-                    {[...Array(16)].map((_, index) => {
-                      const isHintActive = index === 5;
+                    {exposedTileNumbers.map((tileNumber) => {
+                      const isHintActive = false;
 
                       return (
                         <VeeFlex
-                          // eslint-disable-next-line react/no-array-index-key
-                          key={index}
+                          key={tileNumber}
                           className="h-1/4 flex-1 grow-0 basis-1/4 p-1"
                         >
                           <VeeButton
@@ -113,11 +112,11 @@ export default function GameContent() {
                               { '!shadow-none before:hidden': isTimeOver },
                               { '!scale-0 transition-transform !duration-200': isDisappear },
                             )}
-                            disabled={isTimeOver}
+                            disabled={!isProgressPhase}
                             onClick={() => console.log('클릭!')}
                           >
                             <VeeLayout className="h-full items-center justify-center text-[24px] leading-8">
-                              {index}
+                              {tileNumber}
                             </VeeLayout>
                           </VeeButton>
                         </VeeFlex>
