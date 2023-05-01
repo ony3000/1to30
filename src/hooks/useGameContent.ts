@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { PhaseEnum } from '@/miscs/constants';
 
 export default function useGameContent() {
@@ -12,6 +12,19 @@ export default function useGameContent() {
   const isPreparePhase = useMemo(() => currentPhase === PhaseEnum.PREPARE, [currentPhase]);
   const isProgressPhase = useMemo(() => currentPhase === PhaseEnum.PROGRESS, [currentPhase]);
   const isEndPhase = useMemo(() => currentPhase === PhaseEnum.END, [currentPhase]);
+
+  const exposedTileNumbers = useState<(number | null)[]>([]);
+  // const standbyTileNumbers = useState<(number | null)[]>([]);
+
+  useEffect(() => {
+    if (currentPhase === PhaseEnum.INIT) {
+      //
+      // Some initialization logic is here.
+      //
+
+      setCurrentPhase(PhaseEnum.PREPARE);
+    }
+  }, [currentPhase]);
 
   return {
     countdown,
