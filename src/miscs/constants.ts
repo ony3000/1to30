@@ -16,4 +16,11 @@ export enum RankEnum {
   LAST_PLACE = 99,
 }
 
+export enum PhaseEnum {
+  INIT = 'init',
+  PREPARE = 'prepare',
+  PROGRESS = 'progress',
+  END = 'end',
+}
+
 export const OUT_OF_RANK_SYMBOL = String.fromCodePoint(8212); // &mdash;

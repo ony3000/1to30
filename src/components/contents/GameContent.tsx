@@ -11,20 +11,31 @@ import {
 import { useGameContent } from '@/hooks';
 
 export default function GameContent() {
-  const { countdown, isLoading, isEnd, isTimeOver, isDisappear } = useGameContent();
+  const {
+    countdown,
+    isEnd,
+    isTimeOver,
+    isDisappear,
+    isInitPhase,
+    isPreparePhase,
+    isProgressPhase,
+    isEndPhase,
+  } = useGameContent();
 
   return (
     <VeeLayout className="h-full items-center justify-center portrait:flex-col">
-      {isLoading && (
+      {(isInitPhase || isPreparePhase) && (
         <VeeDialog>
-          <VeeCard className="select-none border-transparent !bg-transparent text-white">
-            <div className="w-full p-4 text-center text-[45px] font-bold leading-[48px]">
-              {countdown}
-            </div>
-          </VeeCard>
+          {isPreparePhase && (
+            <VeeCard className="select-none border-transparent !bg-transparent text-white">
+              <div className="w-full p-4 text-center text-[45px] font-bold leading-[48px]">
+                {countdown}
+              </div>
+            </VeeCard>
+          )}
         </VeeDialog>
       )}
-      {!isLoading && (
+      {(isProgressPhase || isEndPhase) && (
         <>
           <VeeFlex className="grow-0 portrait:w-full portrait:basis-1/4 landscape:h-full landscape:basis-1/3">
             <VeeLayout
