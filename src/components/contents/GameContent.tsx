@@ -12,7 +12,6 @@ import { useGameContent } from '@/hooks';
 
 export default function GameContent() {
   const {
-    countdown,
     isTimeOver,
     isDisappear,
     isInitPhase,
@@ -20,6 +19,7 @@ export default function GameContent() {
     isProgressPhase,
     isEndPhase,
     exposedTileNumbers,
+    countdown,
   } = useGameContent();
 
   return (

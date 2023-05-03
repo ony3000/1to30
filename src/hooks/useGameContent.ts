@@ -86,7 +86,6 @@ export default function useGameContent() {
   }, [currentPhase]);
 
   return {
-    countdown,
     isTimeOver,
     isDisappear,
 
@@ -95,5 +94,6 @@ export default function useGameContent() {
     isProgressPhase,
     isEndPhase,
     exposedTileNumbers,
+    countdown,
   };
 }
