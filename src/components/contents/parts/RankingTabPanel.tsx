@@ -31,7 +31,7 @@ export default function RankingTabPanel({ data = [] }: RankingTabPanelProps) {
                 key={gameRecord.uuid}
                 className="relative flex h-14 items-center px-4 text-[16px] text-[inherit]"
               >
-                <VeeSheet className="w-[45px]">
+                <VeeSheet className="w-[45px] shrink-0">
                   <VeeBadge
                     element={<span>N</span>}
                     isActive={gameRecord.isLatest}
@@ -56,7 +56,7 @@ export default function RankingTabPanel({ data = [] }: RankingTabPanelProps) {
                   )}
                 >
                   <div
-                    className={classNames('relative h-6 truncate leading-6', {
+                    className={classNames('relative h-6 w-full truncate leading-6', {
                       'italic text-neutral-400': !gameRecord.name,
                     })}
                   >
