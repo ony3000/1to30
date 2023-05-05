@@ -14,7 +14,7 @@ export default function RankingContent() {
             <RankingTab>Local</RankingTab>
             <RankingTab>Daily</RankingTab>
           </Tab.List>
-          <Tab.Panels className="h-[calc(100%-48px)]">
+          <Tab.Panels className="h-[calc(100vh-80px)] md:h-[calc(100vh-96px)]">
             <RankingTabPanel data={localRanking} />
             <RankingTabPanel data={dailyRanking} />
           </Tab.Panels>
