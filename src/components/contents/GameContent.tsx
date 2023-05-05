@@ -12,14 +12,17 @@ import { useGameContent } from '@/hooks';
 
 export default function GameContent() {
   const {
-    isTimeOver,
-    isDisappear,
     isInitPhase,
     isPreparePhase,
     isProgressPhase,
     isEndPhase,
     exposedTileNumbers,
     countdown,
+    elapsedTimeForDisplay,
+    isHintActive,
+    targetNumber,
+    targetNumberForDisplay,
+    tapping,
   } = useGameContent();
 
   return (
@@ -51,7 +54,7 @@ export default function GameContent() {
                       <div className="flex flex-wrap items-center py-1 px-4">
                         <div>
                           <div className="text-[16px]">Next</div>
-                          <div className="text-[34px] leading-[40px]">1</div>
+                          <div className="text-[34px] leading-[40px]">{targetNumberForDisplay}</div>
                         </div>
                       </div>
                     </VeeCard>
@@ -65,7 +68,9 @@ export default function GameContent() {
                       <div className="flex flex-wrap items-center justify-end py-1 px-4 text-right">
                         <div>
                           <div className="text-[16px]">Time</div>
-                          <div className="text-[34px] leading-[40px]">100.00</div>
+                          <div className="text-[34px] leading-[40px] [font-feature-settings:'tnum']">
+                            {elapsedTimeForDisplay}
+                          </div>
                         </div>
                       </div>
                     </VeeCard>
@@ -96,32 +101,33 @@ export default function GameContent() {
                 )}
                 {!isEndPhase && (
                   <VeeLayout className="h-full !flex-wrap">
-                    {exposedTileNumbers.map((tileNumber) => {
-                      const isHintActive = false;
-
-                      return (
-                        <VeeFlex
-                          key={tileNumber}
-                          className="h-1/4 flex-1 grow-0 basis-1/4 p-1"
-                        >
+                    {exposedTileNumbers.map((tileNumber, index) => (
+                      <VeeFlex
+                        key={tileNumber === null ? `slot#${index}` : `tile#${tileNumber}`}
+                        className="h-1/4 flex-1 grow-0 basis-1/4 p-1"
+                      >
+                        {tileNumber !== null && (
                           <VeeButton
                             className={classNames(
                               '!m-0 h-full w-full !min-w-0 origin-center scale-100',
-                              { 'border-legacy-brown bg-legacy-brown text-white': isHintActive },
-                              { 'border-legacy-amber bg-legacy-amber': !isHintActive },
-                              { '!shadow-none before:hidden': isTimeOver },
-                              { '!scale-0 transition-transform !duration-200': isDisappear },
+                              isHintActive && tileNumber === targetNumber
+                                ? 'border-legacy-brown bg-legacy-brown text-white'
+                                : 'border-legacy-amber bg-legacy-amber',
+                              {
+                                '!scale-0 transition-transform !duration-200':
+                                  targetNumber > tileNumber,
+                              },
                             )}
                             disabled={!isProgressPhase}
-                            onClick={() => console.log('클릭!')}
+                            onClick={() => tapping(tileNumber)}
                           >
                             <VeeLayout className="h-full items-center justify-center text-[24px] leading-8">
                               {tileNumber}
                             </VeeLayout>
                           </VeeButton>
-                        </VeeFlex>
-                      );
-                    })}
+                        )}
+                      </VeeFlex>
+                    ))}
                   </VeeLayout>
                 )}
               </VeeSheet>
