@@ -23,6 +23,7 @@ export default function GameContent() {
     targetNumber,
     targetNumberForDisplay,
     tapping,
+    restartGame,
   } = useGameContent();
 
   return (
@@ -92,7 +93,7 @@ export default function GameContent() {
                   <VeeLayout className="h-full items-center justify-center">
                     <VeeButton
                       className="bg-legacy-amber px-4"
-                      onClick={() => console.log('게임 다시 시작')}
+                      onClick={restartGame}
                     >
                       <VeeIcon className="fas fa-redo-alt mr-4 text-inherit" />
                       <span className="text-[16px]">다시 시작</span>

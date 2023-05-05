@@ -105,6 +105,22 @@ export default function useGameContent() {
     [exposedTileNumbers, progressPhaseElapsedTime, setRanking, standbyTileNumbers, targetNumber],
   );
 
+  const restartGame = useCallback(() => {
+    if (!isEndPhase) {
+      return;
+    }
+
+    setExposedTileNumbers([]);
+    setStandbyTileNumbers([]);
+    preparePhaseStartedAt.current = undefined;
+    setElapsedTime(0);
+    progressPhaseStartedAt.current = undefined;
+    setProgressPhaseElapsedTime(0);
+    lastSuccessfulTappingAt.current = undefined;
+    setTargetNumber(1);
+    setCurrentPhase(PhaseEnum.INIT);
+  }, [isEndPhase]);
+
   useEffect(() => {
     if (currentPhase === PhaseEnum.INIT) {
       const layerCount = Math.ceil(lastTileNumber / tileCount);
@@ -220,5 +236,6 @@ export default function useGameContent() {
     targetNumber,
     targetNumberForDisplay,
     tapping,
+    restartGame,
   };
 }
