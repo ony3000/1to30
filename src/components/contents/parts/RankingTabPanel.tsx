@@ -42,9 +42,9 @@ export default function RankingTabPanel({ data = [] }: RankingTabPanelProps) {
                     <VeeIcon
                       className={classNames(
                         'fas fa-medal',
-                        { 'text-legacy-gold': gameRecord.rank === '1' },
-                        { 'text-legacy-silver': gameRecord.rank === '2' },
-                        { 'text-legacy-bronze': gameRecord.rank === '3' },
+                        { '!text-legacy-gold': gameRecord.rank === '1' },
+                        { '!text-legacy-silver': gameRecord.rank === '2' },
+                        { '!text-legacy-bronze': gameRecord.rank === '3' },
                       )}
                     />
                   )}
@@ -62,7 +62,7 @@ export default function RankingTabPanel({ data = [] }: RankingTabPanelProps) {
                   >
                     {gameRecord.name || '(이름 없음)'}
                   </div>
-                  <div className="truncate text-[14px] text-black/50">
+                  <div className="truncate text-[14px] text-black/50 dark:text-white/70">
                     {gameRecord.score.toFixed(3)}
                   </div>
                 </div>

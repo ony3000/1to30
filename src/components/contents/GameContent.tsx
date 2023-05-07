@@ -92,10 +92,10 @@ export default function GameContent() {
                 {isEndPhase && (
                   <VeeLayout className="h-full items-center justify-center">
                     <VeeButton
-                      className="bg-legacy-amber px-4"
+                      className="bg-legacy-amber px-4 text-black/90"
                       onClick={restartGame}
                     >
-                      <VeeIcon className="fas fa-redo-alt mr-4 text-inherit" />
+                      <VeeIcon className="fas fa-redo-alt mr-4 !text-inherit" />
                       <span className="text-[16px]">다시 시작</span>
                     </VeeButton>
                   </VeeLayout>
@@ -113,7 +113,7 @@ export default function GameContent() {
                               '!m-0 h-full w-full !min-w-0 origin-center scale-100',
                               isHintActive && tileNumber === targetNumber
                                 ? 'border-legacy-brown bg-legacy-brown text-white'
-                                : 'border-legacy-amber bg-legacy-amber',
+                                : 'border-legacy-amber bg-legacy-amber text-black/90',
                               {
                                 '!scale-0 transition-transform !duration-200':
                                   targetNumber > tileNumber,
