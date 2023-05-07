@@ -5,7 +5,6 @@
 @layer base {
   html {
     overflow: hidden;
-    background-color: theme('colors.zinc.50');
   }
 
   @media (prefers-color-scheme: dark) {
