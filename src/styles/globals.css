@@ -4,6 +4,7 @@
 
 @layer base {
   html {
+    overflow: hidden;
     background-color: theme('colors.zinc.50');
   }
 
