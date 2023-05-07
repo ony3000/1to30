@@ -12,7 +12,6 @@
     { "src": "/icons/icon-512x512.png", "sizes": "512x512", "type": "image/png" }
   ],
   "theme_color": "#ffc039",
-  "background_color": "#fafafa",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
