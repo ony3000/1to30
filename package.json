@@ -1,7 +1,7 @@
 {
   "name": "1to30",
-  "version": "1.0.0-beta.1",
-  "description": "Hommage for 1to50 (https://apps.apple.com/kr/app/1to50/id390866379)",
+  "version": "1.0.0-beta.2",
+  "description": "1부터 30까지 빠르게 누르는 게임입니다.",
   "author": "Hyeonjong <nianelo4@gmail.com>",
   "license": "MIT",
   "scripts": {
