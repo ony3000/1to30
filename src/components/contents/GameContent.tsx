@@ -12,6 +12,7 @@ import { useGameContent } from '@/hooks';
 
 export default function GameContent() {
   const {
+    isTouchEnabled,
     isInitPhase,
     isPreparePhase,
     isProgressPhase,
@@ -120,7 +121,8 @@ export default function GameContent() {
                               },
                             )}
                             disabled={!isProgressPhase}
-                            onClick={() => tapping(tileNumber)}
+                            onTouchStart={isTouchEnabled ? () => tapping(tileNumber) : undefined}
+                            onClick={isTouchEnabled ? undefined : () => tapping(tileNumber)}
                           >
                             <VeeLayout className="h-full items-center justify-center text-[24px] leading-8">
                               {tileNumber}

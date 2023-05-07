@@ -4,6 +4,7 @@ import { classNames } from '@/adaptors';
 export default function VeeButton({
   className,
   disabled,
+  onTouchStart,
   onClick,
   children,
 }: ComponentProps<'button'>) {
@@ -22,6 +23,7 @@ export default function VeeButton({
         className,
       )}
       disabled={disabled}
+      onTouchStart={onTouchStart}
       onClick={onClick}
     >
       <div

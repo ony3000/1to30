@@ -13,6 +13,11 @@ const progressPhaseDuration = 100 * TimeEnum.SECOND;
 export default function useGameContent() {
   const setRanking = useSetRecoilState(rankingState);
 
+  const isTouchEnabled = useMemo(
+    () => 'ontouchstart' in window || window.navigator.maxTouchPoints > 0,
+    [],
+  );
+
   const [currentPhase, setCurrentPhase] = useState(PhaseEnum.INIT);
   const isInitPhase = useMemo(() => currentPhase === PhaseEnum.INIT, [currentPhase]);
   const isPreparePhase = useMemo(() => currentPhase === PhaseEnum.PREPARE, [currentPhase]);
@@ -225,6 +230,7 @@ export default function useGameContent() {
   }, [currentPhase]);
 
   return {
+    isTouchEnabled,
     isInitPhase,
     isPreparePhase,
     isProgressPhase,
