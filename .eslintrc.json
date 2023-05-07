@@ -18,6 +18,12 @@
       {
         "functions": "defaultArguments"
       }
+    ],
+    "react-hooks/exhaustive-deps": [
+      2,
+      {
+        "additionalHooks": "useRecoilCallback"
+      }
     ]
   }
 }

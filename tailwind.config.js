@@ -98,6 +98,12 @@ module.exports = {
       prose: '65ch',
       ...breakpoints(theme('screens')),
     }),
+    screens: {
+      sm: '600px',
+      md: '960px',
+      lg: '1264px',
+      xl: '1904px',
+    },
     spacing: {
       px: '1px',
       0: '0px',
@@ -136,6 +142,16 @@ module.exports = {
       96: rem2px('24rem'),
     },
     extend: {
+      colors: {
+        legacy: {
+          amber: '#ffc039',
+          brown: '#795548',
+          'deep-brown': '#3f240d',
+          gold: '#f4a622',
+          silver: '#b9b9b9',
+          bronze: '#d06a3d',
+        },
+      },
       fontFamily: {
         sans: ['var(--font-pretendard)', ...fontFamily.sans],
       },
@@ -144,5 +160,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@headlessui/tailwindcss')],
 };
