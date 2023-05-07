@@ -6,7 +6,7 @@ export default function VeeApp({ children }: ComponentProps<'div'>) {
     <div className="flex text-black/90 dark:text-white">
       <div
         className={classNames(
-          `fixed inset-0 flex min-h-screen max-w-full flex-auto flex-col overflow-hidden
+          `fixed inset-0 flex max-w-full flex-auto flex-col overflow-hidden
           [backface-visibility:hidden]`,
         )}
       >

@@ -8,13 +8,13 @@ export default function RankingContent() {
 
   return (
     <VeeLayout className="h-full !flex-wrap justify-center">
-      <VeeFlex>
+      <VeeFlex className="max-h-full">
         <Tab.Group>
           <Tab.List className="relative flex h-12 flex-auto shrink-0 whitespace-nowrap bg-legacy-amber">
             <RankingTab>Local</RankingTab>
             <RankingTab>Daily</RankingTab>
           </Tab.List>
-          <Tab.Panels className="h-[calc(100vh-80px)] md:h-[calc(100vh-96px)]">
+          <Tab.Panels className="h-[calc(100%-48px)]">
             <RankingTabPanel data={localRanking} />
             <RankingTabPanel data={dailyRanking} />
           </Tab.Panels>
