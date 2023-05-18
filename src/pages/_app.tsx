@@ -66,6 +66,26 @@ export default function App({ Component, pageProps }: AppProps) {
           property="og:site_name"
           content="1부터 30까지!"
         />
+        <meta
+          property="twitter:card"
+          content="summary_large_image"
+        />
+        <meta
+          property="twitter:url"
+          content="https://1to30.vercel.app/"
+        />
+        <meta
+          property="twitter:title"
+          content="1부터 30까지!"
+        />
+        <meta
+          property="twitter:description"
+          content="1부터 30까지 빠르게 누르는 게임입니다."
+        />
+        <meta
+          property="twitter:image"
+          content="https://1to30.vercel.app/images/meta-image.png"
+        />
         <link
           rel="apple-touch-icon"
           sizes="512x512"
