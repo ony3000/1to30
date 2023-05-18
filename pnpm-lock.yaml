@@ -16,6 +16,7 @@ specifiers:
   '@types/uuid': 9.0.1
   '@typescript-eslint/eslint-plugin': 5.54.0
   '@typescript-eslint/parser': 5.54.0
+  '@vercel/analytics': 1.0.1
   autoprefixer: 10.4.13
   classnames: 2.3.2
   dayjs: 1.11.7
@@ -59,6 +60,7 @@ dependencies:
   '@types/uuid': 9.0.1
   '@typescript-eslint/eslint-plugin': 5.54.0_6mj2wypvdnknez7kws2nfdgupi
   '@typescript-eslint/parser': 5.54.0_ycpbpc6yetojsgtrx3mwntkhsu
+  '@vercel/analytics': 1.0.1
   autoprefixer: 10.4.13_postcss@8.4.21
   classnames: 2.3.2
   dayjs: 1.11.7
@@ -2244,6 +2246,10 @@ packages:
     dependencies:
       '@typescript-eslint/types': 5.54.0
       eslint-visitor-keys: 3.3.0
+    dev: false
+
+  /@vercel/analytics/1.0.1:
+    resolution: {integrity: sha512-Ux0c9qUfkcPqng3vrR0GTrlQdqNJ2JREn/2ydrVuKwM3RtMfF2mWX31Ijqo1opSjNAq6rK76PwtANw6kl6TAow==}
     dev: false
 
   /@webassemblyjs/ast/1.11.1:
