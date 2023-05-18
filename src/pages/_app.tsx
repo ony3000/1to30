@@ -56,7 +56,7 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <meta
           property="og:image"
-          content="https://1to30.vercel.app/icons/icon-512x512.png"
+          content="https://1to30.vercel.app/images/meta-image.png"
         />
         <meta
           property="og:description"
