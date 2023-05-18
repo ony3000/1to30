@@ -43,12 +43,20 @@ export default function App({ Component, pageProps }: AppProps) {
           content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,minimal-ui"
         />
         <meta
+          property="og:url"
+          content="https://1to30.vercel.app/"
+        />
+        <meta
           property="og:type"
           content="website"
         />
         <meta
           property="og:title"
           content="1부터 30까지!"
+        />
+        <meta
+          property="og:image"
+          content="/icons/icon-512x512.png"
         />
         <meta
           property="og:description"
