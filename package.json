@@ -27,6 +27,7 @@
     "@types/uuid": "9.0.1",
     "@typescript-eslint/eslint-plugin": "5.54.0",
     "@typescript-eslint/parser": "5.54.0",
+    "@vercel/analytics": "1.0.1",
     "autoprefixer": "10.4.13",
     "classnames": "2.3.2",
     "dayjs": "1.11.7",
