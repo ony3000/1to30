@@ -24,4 +24,6 @@ export enum PhaseEnum {
   END = 'end',
 }
 
+export const IS_DEBUGGING_MODE = process.env.NEXT_PUBLIC_DEBUG === String(true);
+
 export const OUT_OF_RANK_SYMBOL = String.fromCodePoint(8212); // &mdash;
