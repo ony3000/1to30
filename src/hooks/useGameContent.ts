@@ -2,13 +2,13 @@ import { useRef, useState, useMemo, useCallback, useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { uuid } from '@/adaptors';
 import { rankingState } from '@/store/atoms';
-import { TimeEnum, PhaseEnum } from '@/miscs/constants';
+import { TimeEnum, PhaseEnum, IS_DEBUGGING_MODE } from '@/miscs/constants';
 import { shuffle } from '@/miscs/utils';
 
 const lastTileNumber = 30;
 const tileCount = 16;
 const preparePhaseDuration = 3 * TimeEnum.SECOND;
-const progressPhaseDuration = 100 * TimeEnum.SECOND;
+const progressPhaseDuration = IS_DEBUGGING_MODE ? 30 * TimeEnum.SECOND : 100 * TimeEnum.SECOND;
 
 export default function useGameContent() {
   const setRanking = useSetRecoilState(rankingState);
@@ -93,16 +93,18 @@ export default function useGameContent() {
             const name = window.prompt(`입력하는 이름으로 ${score}초 기록이 저장됩니다.`, '') || '';
             const { userAgent } = window.navigator;
 
-            setRanking((prevRanking) => [
-              ...prevRanking,
-              {
-                name,
-                score,
-                timestamp,
-                userAgent,
-                uuid: uuid(),
-              },
-            ]);
+            if (!IS_DEBUGGING_MODE) {
+              setRanking((prevRanking) => [
+                ...prevRanking,
+                {
+                  name,
+                  score,
+                  timestamp,
+                  userAgent,
+                  uuid: uuid(),
+                },
+              ]);
+            }
           }, 200 * TimeEnum.MILLISECOND);
         }
       }
@@ -164,18 +166,21 @@ export default function useGameContent() {
         preparePhaseStartedAt.current = new Date().getTime();
       }
 
-      timerId = window.setInterval(() => {
-        const realElapsedTime = preparePhaseStartedAt.current
-          ? new Date().getTime() - preparePhaseStartedAt.current
-          : 0;
+      timerId = window.setInterval(
+        () => {
+          const realElapsedTime = preparePhaseStartedAt.current
+            ? new Date().getTime() - preparePhaseStartedAt.current
+            : 0;
 
-        setElapsedTime(Math.min(realElapsedTime, preparePhaseDuration));
+          setElapsedTime(Math.min(realElapsedTime, preparePhaseDuration));
 
-        if (realElapsedTime >= preparePhaseDuration) {
-          window.clearInterval(timerId);
-          setCurrentPhase(PhaseEnum.PROGRESS);
-        }
-      }, 5 * TimeEnum.MILLISECOND);
+          if (realElapsedTime >= preparePhaseDuration) {
+            window.clearInterval(timerId);
+            setCurrentPhase(PhaseEnum.PROGRESS);
+          }
+        },
+        IS_DEBUGGING_MODE ? 500 * TimeEnum.MILLISECOND : 5 * TimeEnum.MILLISECOND,
+      );
     }
 
     return () => {
@@ -199,27 +204,30 @@ export default function useGameContent() {
         lastSuccessfulTappingAt.current = now;
       }
 
-      timerId = window.setInterval(() => {
-        const realElapsedTime = progressPhaseStartedAt.current
-          ? new Date().getTime() - progressPhaseStartedAt.current
-          : 0;
+      timerId = window.setInterval(
+        () => {
+          const realElapsedTime = progressPhaseStartedAt.current
+            ? new Date().getTime() - progressPhaseStartedAt.current
+            : 0;
 
-        setProgressPhaseElapsedTime(Math.min(realElapsedTime, progressPhaseDuration));
+          setProgressPhaseElapsedTime(Math.min(realElapsedTime, progressPhaseDuration));
 
-        if (realElapsedTime >= progressPhaseDuration) {
-          window.clearInterval(timerId);
-          setCurrentPhase(PhaseEnum.END);
+          if (realElapsedTime >= progressPhaseDuration) {
+            window.clearInterval(timerId);
+            setCurrentPhase(PhaseEnum.END);
 
-          window.setTimeout(() => {
-            // eslint-disable-next-line no-alert
-            window.alert(
-              `시간 초과! ${
-                progressPhaseDuration / TimeEnum.SECOND
-              }초 안에 게임을 완료하지 못하면 자동으로 종료됩니다.`,
-            );
-          }, 200 * TimeEnum.MILLISECOND);
-        }
-      }, 5 * TimeEnum.MILLISECOND);
+            window.setTimeout(() => {
+              // eslint-disable-next-line no-alert
+              window.alert(
+                `시간 초과! ${
+                  progressPhaseDuration / TimeEnum.SECOND
+                }초 안에 게임을 완료하지 못하면 자동으로 종료됩니다.`,
+              );
+            }, 200 * TimeEnum.MILLISECOND);
+          }
+        },
+        IS_DEBUGGING_MODE ? 500 * TimeEnum.MILLISECOND : 5 * TimeEnum.MILLISECOND,
+      );
     }
 
     return () => {
