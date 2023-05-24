@@ -128,6 +128,17 @@ export default function useGameContent() {
     setCurrentPhase(PhaseEnum.INIT);
   }, [isEndPhase]);
 
+  const loggingData = useRef<object>({});
+
+  useEffect(() => {
+    if (currentPhase === PhaseEnum.PROGRESS) {
+      loggingData.current = {
+        // Assign the values you want to log as key-value pairs.
+        // (You may need to update this effect's deps array.)
+      };
+    }
+  }, [currentPhase]);
+
   useEffect(() => {
     if (currentPhase === PhaseEnum.INIT) {
       const layerCount = Math.ceil(lastTileNumber / tileCount);
@@ -211,6 +222,11 @@ export default function useGameContent() {
             : 0;
 
           setProgressPhaseElapsedTime(Math.min(realElapsedTime, progressPhaseDuration));
+
+          if (IS_DEBUGGING_MODE) {
+            // eslint-disable-next-line no-console
+            console.log(loggingData.current);
+          }
 
           if (realElapsedTime >= progressPhaseDuration) {
             window.clearInterval(timerId);
