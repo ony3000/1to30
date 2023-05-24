@@ -28,10 +28,10 @@ export default function useGameContent() {
   const [standbyTileNumbers, setStandbyTileNumbers] = useState<(number | null)[]>([]);
 
   const preparePhaseStartedAt = useRef<number>();
-  const [elapsedTime, setElapsedTime] = useState(0);
+  const [preparePhaseElapsedTime, setPreparePhaseElapsedTime] = useState(0);
   const countdown = useMemo(
-    () => Math.ceil((preparePhaseDuration - elapsedTime) / TimeEnum.SECOND),
-    [elapsedTime],
+    () => Math.ceil((preparePhaseDuration - preparePhaseElapsedTime) / TimeEnum.SECOND),
+    [preparePhaseElapsedTime],
   );
 
   const progressPhaseStartedAt = useRef<number>();
@@ -125,7 +125,7 @@ export default function useGameContent() {
     setExposedTileNumbers([]);
     setStandbyTileNumbers([]);
     preparePhaseStartedAt.current = undefined;
-    setElapsedTime(0);
+    setPreparePhaseElapsedTime(0);
     progressPhaseStartedAt.current = undefined;
     setProgressPhaseElapsedTime(0);
     lastSuccessfulTappingAt.current = undefined;
@@ -188,7 +188,7 @@ export default function useGameContent() {
             ? new Date().getTime() - preparePhaseStartedAt.current
             : 0;
 
-          setElapsedTime(Math.min(realElapsedTime, preparePhaseDuration));
+          setPreparePhaseElapsedTime(Math.min(realElapsedTime, preparePhaseDuration));
 
           if (realElapsedTime >= preparePhaseDuration) {
             window.clearInterval(timerId);
