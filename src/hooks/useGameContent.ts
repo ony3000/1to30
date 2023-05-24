@@ -66,8 +66,13 @@ export default function useGameContent() {
           (exposedTileNumber) => tileNumber === exposedTileNumber,
         );
         const [standbyTileNumber] = standbyTileNumbers;
+        const now = new Date().getTime();
+        const realElapsedTime = progressPhaseStartedAt.current
+          ? now - progressPhaseStartedAt.current
+          : 0;
 
-        lastSuccessfulTappingAt.current = new Date().getTime();
+        setProgressPhaseElapsedTime(Math.min(realElapsedTime, progressPhaseDuration));
+        lastSuccessfulTappingAt.current = now;
         setTargetNumber((prevNumber) => prevNumber + 1);
 
         if (standbyTileNumber !== undefined) {
