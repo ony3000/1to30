@@ -12,7 +12,7 @@ import {
   VeeButton,
   VeeIcon,
 } from '@/components/vuetify-imitation';
-import { ContentEnum } from '@/miscs/constants';
+import { ContentEnum, IS_DEBUGGING_MODE } from '@/miscs/constants';
 
 export default function AppMain({ children }: ComponentProps<'main'>) {
   const [isClientReady, setIsClientReady] = useRecoilState(isClientReadyState);
@@ -28,6 +28,16 @@ export default function AppMain({ children }: ComponentProps<'main'>) {
     <main className={classNames(pretendard.variable, 'font-sans')}>
       <VeeApp>
         <VeeContent>
+          {IS_DEBUGGING_MODE && (
+            <VeeSheet
+              className={classNames(
+                `shadow-elevation-2 !fixed bottom-4 right-4 z-10 select-none rounded-lg border border-black/90
+                px-1.5 font-medium dark:!border-white`,
+              )}
+            >
+              디버깅 모드
+            </VeeSheet>
+          )}
           <VeeContainer>
             <VeeSheet
               className={classNames(
