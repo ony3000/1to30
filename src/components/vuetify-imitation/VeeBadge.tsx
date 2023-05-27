@@ -13,7 +13,7 @@ export default function VeeBadge({ children, element, isActive }: VeeBadgeProps)
       {isActive && (
         <span
           className={classNames(
-            `absolute top-[-11px] right-[-22px] flex h-[22px] w-[22px] items-center justify-center
+            `absolute top-[-11px] right-[-22px] z-[1] flex h-[22px] w-[22px] items-center justify-center
             rounded-full bg-red-500 text-[14px] text-white`,
           )}
         >
