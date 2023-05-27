@@ -5,11 +5,11 @@ import VeeOverlay from './VeeOverlay';
 export default function VeeDialog({ children }: ComponentProps<'div'>) {
   return (
     <>
-      <VeeOverlay className="z-10" />
+      <VeeOverlay className="z-[100]" />
       <div
         tabIndex={-1}
         className={classNames(
-          `pointer-events-none fixed top-0 left-0 z-20 flex h-full w-full items-center justify-center
+          `pointer-events-none fixed top-0 left-0 z-[110] flex h-full w-full items-center justify-center
           outline-none`,
         )}
       >

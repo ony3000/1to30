@@ -31,8 +31,8 @@ export default function AppMain({ children }: ComponentProps<'main'>) {
           {IS_DEBUGGING_MODE && (
             <VeeSheet
               className={classNames(
-                `shadow-elevation-2 !fixed bottom-4 right-4 z-10 select-none rounded-lg border border-black/90
-                px-1.5 font-medium dark:!border-white`,
+                `shadow-elevation-2 !fixed bottom-4 right-4 z-[1000] select-none rounded-lg border
+                border-black/90 px-1.5 font-medium dark:!border-white`,
               )}
             >
               디버깅 모드
@@ -54,7 +54,7 @@ export default function AppMain({ children }: ComponentProps<'main'>) {
           {content !== ContentEnum.INDEX && (
             <VeeButton
               className={classNames(
-                `!fixed left-4 bottom-4 !m-0 w-9 !min-w-0 justify-center !rounded-full bg-transparent p-0
+                `!fixed left-4 bottom-4 z-10 !m-0 w-9 !min-w-0 justify-center !rounded-full bg-transparent p-0
                 text-black/90 !shadow-none dark:text-white`,
               )}
               onClick={() => setContent(ContentEnum.INDEX)}
